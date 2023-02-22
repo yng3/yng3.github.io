@@ -35,7 +35,8 @@
     </style>
   </head>
   <body>
-    <h1 class="animate__animated animate__fadeInDown">METAGLITCHR</h1>
-    <p class="animate__animated animate__fadeInUp">You have stumbled upon the realm of mystery and wonder. Follow me on <a href="https://github.com/metaglitchr">GitHub</a> to uncover the secrets of my creations.</p>
+    <h1 class="animate__animated animate__fadeInDown">YNG3</h1>
+    <p class="animate__animated animate__fadeInUp">Welcome to the world of YNG3. I'm a passionate programmer and web developer who loves to create beautiful and functional websites. Check out my projects on <a href="https://github.com/YNG3">GitHub</a> and follow me for more!</p>
+    <p class="animate__animated animate__fadeInUp">If you're interested in cybersecurity, check out my alter-ego <a href="https://github.com/metaglitchr">metaglitchr</a>.</p>
   </body>
 </html>
