@@ -102,6 +102,6 @@
     </div>
     <h1>Welcome to the world of YNG3</h1>
     <p>I am a mysterious being lurking in the depths of cyberspace. I specialize in web development, but my true passion lies in the unknown. Follow me down the rabbit hole and see what we can discover together. Check out my projects on <a href="https://github.com/YNG3">GitHub</a> and let's uncover the mysteries of the digital world.</p>
-    <p>you hhave stumbled upon the realm of mystery and wonder. Follow me on <a href="https://github.com/metaglitchr">GitHub</a>
+    <p>you have stumbled upon the realm of mystery and wonder. Follow me on <a href="https://github.com/metaglitchr">GitHub</a> to uncover the secrets of my creations.</p>
   </body>
 </html>
