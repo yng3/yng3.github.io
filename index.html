@@ -9,6 +9,7 @@
         color: #fff;
         font-family: "Helvetica Neue", Arial, sans-serif;
         text-align: center;
+        position: relative;
       }
 
       h1 {
@@ -32,10 +33,46 @@
         text-decoration: none;
         border-bottom: 2px solid rgba(255, 255, 255, 0.3);
       }
+
+      #bottom-left {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 33.33%;
+        padding: 20px;
+        text-align: left;
+      }
+
+      #bottom-center {
+        position: absolute;
+        bottom: 0;
+        left: 33.33%;
+        width: 33.33%;
+        padding: 20px;
+        text-align: center;
+      }
+
+      #bottom-right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 33.33%;
+        padding: 20px;
+        text-align: right;
+      }
     </style>
   </head>
   <body>
     <h1 class="animate__animated animate__fadeInDown">YNG3</h1>
     <p class="animate__animated animate__fadeInUp">You have stumbled upon the realm of mystery and wonder. Follow me to <a href="https://metaglitchr.github.io">metaglitchr</a> and uncover the secrets of my creations.</p>
+    <div id="bottom-left">
+      mg
+    </div>
+    <div id="bottom-center">
+      it
+    </div>
+    <div id="bottom-right">
+      yng3
+    </div>
   </body>
 </html>
