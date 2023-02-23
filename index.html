@@ -2,19 +2,19 @@
 <html>
   <head>
     <title>YNG3</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
       body {
         background-color: #000;
         color: #fff;
         font-family: "Helvetica Neue", Arial, sans-serif;
         text-align: center;
-        position: relative;
       }
 
       h1 {
         font-size: 4em;
         margin-top: 100px;
+        margin-bottom: 20px;
         letter-spacing: 5px;
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
       }
@@ -32,47 +32,42 @@
         color: #fff;
         text-decoration: none;
         border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 0 5px;
       }
 
-      #bottom-left {
+      .left {
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 33.33%;
-        padding: 20px;
-        text-align: left;
+        margin: 0 10px;
+        font-size: 2em;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
       }
 
-      #bottom-center {
+      .center {
         position: absolute;
         bottom: 0;
-        left: 33.33%;
-        width: 33.33%;
-        padding: 20px;
-        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2em;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
       }
 
-      #bottom-right {
+      .right {
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 33.33%;
-        padding: 20px;
-        text-align: right;
+        margin: 0 10px;
+        font-size: 2em;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
       }
     </style>
   </head>
   <body>
     <h1 class="animate__animated animate__fadeInDown">YNG3</h1>
     <p class="animate__animated animate__fadeInUp">You have stumbled upon the realm of mystery and wonder. Follow me to <a href="https://metaglitchr.github.io">metaglitchr</a> and uncover the secrets of my creations.</p>
-    <div id="bottom-left">
-      mg
-    </div>
-    <div id="bottom-center">
-      it
-    </div>
-    <div id="bottom-right">
-      yng3
-    </div>
+    <div class="left">MG</div>
+    <div class="center">IT</div>
+    <div class="right">YNG3</div>
   </body>
 </html>
