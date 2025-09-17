@@ -3,263 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Dimension | YNG3</title>
+    <title>Pixel Realm | YNG3</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
     <style>
         body {
-            overflow: hidden;
-            margin: 0;
             background: #000;
-        }
-        #pixel-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-        .pixel-text {
-            text-shadow: 0 0 10px rgba(255,255,255,0.8);
-            transition: all 0.3s ease;
-        }
-        .pixel-text:hover {
-            text-shadow: 0 0 20px rgba(255,255,255,1);
-        }
-        .pixel-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
-            gap: 1px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .pixel-cell {
-            width: 100%;
-            height: 20px;
-            background: rgba(255,255,255,0.02);
-            transition: all 0.5s ease;
-        }
-        .back-button {
-            position: relative;
+            margin: 0;
             overflow: hidden;
+            font-family: 'Courier New', monospace;
         }
-        .back-button::after {
-            content: '';
-            position: absolute;
+        
+        #pixel-container {
+            position: fixed;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.5s ease;
+            display: grid;
+            grid-template-columns: repeat(80, 1fr);
+            grid-template-rows: repeat(45, 1fr);
+            gap: 0;
+            z-index: 0;
         }
-        .back-button:hover::after {
-            left: 100%;
+        
+        .pixel {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            transition: background 0.1s ease;
+        }
+        
+        .content-overlay {
+            position: relative;
+            z-index: 10;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0,0,0,0.7);
+            margin: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5rem;
+        }
+        
+        .pixel-text {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            line-height: 2;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+        
+        button:hover {
+            background: white;
+            color: black;
+        }
+        
+        .dimension-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .dimension-card {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 1rem;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .dimension-card h3 {
+            margin-top: 0;
+            color: #00ff00;
         }
     </style>
 </head>
-<body class="text-white min-h-screen flex flex-col items-center justify-center">
-    <div id="pixel-canvas"></div>
-    <div class="pixel-grid" id="pixel-grid"></div>
+<body>
+    <div id="pixel-container"></div>
     
-    <div class="container mx-auto px-4 py-8 text-center relative z-10">
-        <h1 class="text-5xl md:text-8xl font-bold mb-8 pixel-text">PIXEL REALMS</h1>
-        <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto opacity-80">
-            Navigate through dimensions where digital particles transcend reality,<br>
-            each realm offering unique interactions and revelations.
+    <div class="content-overlay">
+        <h1>PIXEL REALM</h1>
+        <p class="pixel-text">WHERE EVERY DOT IS A UNIVERSE OF POSSIBILITY</p>
+        
+        <div class="dimension-info">
+            <div class="dimension-card">
+                <h3>HARMONIC DIMENSION</h3>
+                <p>Organized patterns that pulse with mathematical precision</p>
+            </div>
+            <div class="dimension-card">
+                <h3>FRACTAL DIMENSION</h3>
+                <p>Infinite complexity emerging from simple recursive rules</p>
+            </div>
+            <div class="dimension-card">
+                <h3>QUANTUM DIMENSION</h3>
+                <p>Superposition states collapsing into observable reality</p>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button onclick="switchDimension('harmonic')">Harmonic</button>
+            <button onclick="switchDimension('fractal')">Fractal</button>
+            <button onclick="switchDimension('quantum')">Quantum</button>
+            <button onclick="toggleAnimation()">Toggle Animation</button>
+            <button onclick="window.location.href='index.html'">Return to Reality</button>
+        </div>
+        
+        <p class="pixel-text" style="margin-top: 2rem; font-size: 1rem; opacity: 0.7;">
+            Each pixel you see is a programmable element in this digital cosmos.<br>
+            Watch as they form words, patterns, and gateways to other dimensions.
         </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div class="p-6 border border-white rounded-lg transform hover:scale-105 transition-all duration-300 cursor-pointer" onclick="switchRealm('harmonic')">
-                <h3 class="text-2xl mb-2">Harmonic Realm</h3>
-                <p class="opacity-80">Where pixels dance in perfect mathematical harmony</p>
-            </div>
-            <div class="p-6 border border-white rounded-lg transform hover:scale-105 transition-all duration-300 cursor-pointer" onclick="switchRealm('fractal')">
-                <h3 class="text-2xl mb-2">Fractal Realm</h3>
-                <p class="opacity-80">Infinite complexity from simple recursive patterns</p>
-            </div>
-            <div class="p-6 border border-white rounded-lg transform hover:scale-105 transition-all duration-300 cursor-pointer" onclick="switchRealm('quantum')">
-                <h3 class="text-2xl mb-2">Quantum Realm</h3>
-                <p class="opacity-80">Where pixels exist in superposition until observed</p>
-            </div>
-        </div>
-        
-        <div class="space-y-6 inline-flex flex-wrap justify-center gap-4">
-            <div class="p-4 border border-white rounded-lg inline-block transform hover:scale-105 transition-all duration-300">
-                <p class="text-sm opacity-70">DIMENSIONAL FREQUENCY</p>
-                <p class="text-2xl" id="frequency-value">0.618</p>
-            </div>
-            
-            <div class="p-4 border border-white rounded-lg inline-block transform hover:scale-105 transition-all duration-300">
-                <p class="text-sm opacity-70">REALM RESONANCE</p>
-                <p class="text-2xl" id="resonance-value">1.414</p>
-            </div>
-
-            <div class="p-4 border border-white rounded-lg inline-block transform hover:scale-105 transition-all duration-300">
-                <p class="text-sm opacity-70">ENTROPY LEVEL</p>
-                <p class="text-2xl" id="entropy-value">2.718</p>
-            </div>
-
-            <div class="p-4 border border-white rounded-lg inline-block transform hover:scale-105 transition-all duration-300">
-                <p class="text-sm opacity-70">DIMENSIONAL DEPTH</p>
-                <p class="text-2xl" id="depth-value">3.141</p>
-            </div>
-        </div>
-
-        <div class="mt-8 max-w-2xl mx-auto">
-            <div class="w-full bg-gray-800 rounded-full h-2.5 mb-4">
-                <div id="realm-energy" class="bg-blue-500 h-2.5 rounded-full" style="width: 45%"></div>
-            </div>
-            <p class="text-sm opacity-70">REALM ENERGY FLOW</p>
-        </div>
-        
-        <div class="mt-12 flex flex-col md:flex-row justify-center gap-4">
-            <a href="index.html" class="back-button px-8 py-3 border border-white rounded-lg text-lg transition-all duration-500 hover:bg-white hover:text-black">
-                Return to Reality
-            </a>
-            <button onclick="captureMoment()" class="px-8 py-3 border border-white rounded-lg text-lg transition-all duration-500 hover:bg-white hover:text-black">
-                Capture This Moment
-            </button>
-            <button onclick="randomizeRealm()" class="px-8 py-3 border border-white rounded-lg text-lg transition-all duration-500 hover:bg-white hover:text-black">
-                Randomize Realm
-            </button>
-        </div>
     </div>
 
     <script>
-        let currentRealm = 'harmonic';
+        const container = document.getElementById('pixel-container');
+        const pixels = [];
+        let currentDimension = 'harmonic';
+        let animationActive = true;
+        let frameCount = 0;
         
         // Create pixel grid
-        const grid = document.getElementById('pixel-grid');
-        const cellCount = Math.floor(window.innerWidth / 20) * Math.floor(window.innerHeight / 20);
-        
-        for (let i = 0; i < cellCount; i++) {
-            const cell = document.createElement('div');
-            cell.className = 'pixel-cell';
-            grid.appendChild(cell);
-            
-            // Animate cells randomly
-            setInterval(() => {
-                if (Math.random() > 0.95) {
-                    cell.style.background = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 0.3})`;
-                    setTimeout(() => {
-                        cell.style.background = 'rgba(255,255,255,0.02)';
-                    }, Math.random() * 2000);
-                }
-            }, 100);
-        }
-
-        // Animate dimensional metrics
-        const frequencyElement = document.getElementById('frequency-value');
-        const resonanceElement = document.getElementById('resonance-value');
-        const entropyElement = document.getElementById('entropy-value');
-        const depthElement = document.getElementById('depth-value');
-        const energyBar = document.getElementById('realm-energy');
-        
-        function updateMetrics() {
-            const baseValues = {
-                harmonic: { freq: 0.618, res: 1.414, ent: 2.718, dep: 3.141 },
-                fractal: { freq: 1.618, res: 2.414, ent: 1.718, dep: 4.669 },
-                quantum: { freq: 0.381, res: 0.707, ent: 3.141, dep: 2.718 }
-            };
-            
-            const base = baseValues[currentRealm];
-            
-            frequencyElement.textContent = (base.freq + Math.random() * 0.1).toFixed(3);
-            resonanceElement.textContent = (base.res + Math.random() * 0.2).toFixed(3);
-            entropyElement.textContent = (base.ent + Math.random() * 0.15).toFixed(3);
-            depthElement.textContent = (base.dep + Math.random() * 0.25).toFixed(3);
-            
-            // Animate energy flow
-            const energy = 45 + Math.random() * 10;
-            energyBar.style.width = `${energy}%`;
-            energyBar.style.backgroundColor = `hsl(${200 + energy}, 100%, 50%)`;
+        for (let i = 0; i < 80 * 45; i++) {
+            const pixel = document.createElement('div');
+            pixel.className = 'pixel';
+            container.appendChild(pixel);
+            pixels.push(pixel);
         }
         
-        setInterval(updateMetrics, 800);
-        
-        function switchRealm(realm) {
-            currentRealm = realm;
-            updateMetrics();
-            // In a full implementation, this would change the visual style
-            document.querySelector('h1').textContent = `${realm.toUpperCase()} REALM`;
+        function switchDimension(dimension) {
+            currentDimension = dimension;
+            document.querySelector('h1').textContent = `PIXEL REALM - ${dimension.toUpperCase()}`;
         }
         
-        function randomizeRealm() {
-            const realms = ['harmonic', 'fractal', 'quantum'];
-            const randomRealm = realms[Math.floor(Math.random() * realms.length)];
-            switchRealm(randomRealm);
+        function toggleAnimation() {
+            animationActive = !animationActive;
         }
         
-        function captureMoment() {
-            const metrics = {
-                frequency: frequencyElement.textContent,
-                resonance: resonanceElement.textContent,
-                entropy: entropyElement.textContent,
-                depth: depthElement.textContent,
-                realm: currentRealm,
-                timestamp: new Date().toISOString()
-            };
+        function animate() {
+            if (!animationActive) {
+                requestAnimationFrame(animate);
+                return;
+            }
             
-            // In a real implementation, this would save to localStorage or send to a server
-            console.log('Captured moment:', metrics);
-            alert(`Moment captured in ${currentRealm} realm!\nCheck console for details.`);
-        }
-
-        // p5.js pixel animation
-        function setup() {
-            const canvas = createCanvas(window.innerWidth, window.innerHeight);
-            canvas.id('pixel-canvas');
-            noStroke();
-            colorMode(HSB, 360, 100, 100, 1);
-        }
-
-        function draw() {
-            clear();
+            frameCount++;
             
-            if (currentRealm === 'harmonic') {
-                // Harmonic realm - organized patterns
-                for (let i = 0; i < 100; i++) {
-                    const x = random(width);
-                    const y = random(height);
-                    const size = random(1, 3);
-                    const hue = (frameCount * 0.1 + i * 3.6) % 360;
-                    fill(hue, 80, 90, 0.7);
-                    rect(x, y, size, size);
+            if (currentDimension === 'harmonic') {
+                // Harmonic wave patterns
+                for (let i = 0; i < pixels.length; i++) {
+                    const row = Math.floor(i / 80);
+                    const col = i % 80;
+                    const wave = Math.sin((col + frameCount * 0.1) * 0.2) * Math.cos((row + frameCount * 0.05) * 0.15);
+                    const intensity = Math.floor((wave + 1) * 127);
+                    pixels[i].style.background = `rgb(${intensity}, ${intensity}, ${255 - intensity})`;
                 }
             } 
-            else if (currentRealm === 'fractal') {
-                // Fractal realm - recursive patterns
-                for (let i = 0; i < 50; i++) {
-                    const x = width * noise(frameCount * 0.01, i * 0.1);
-                    const y = height * noise(i * 0.1, frameCount * 0.01);
-                    const size = 2 + 10 * noise(i * 0.05, frameCount * 0.005);
-                    fill((frameCount + i * 10) % 360, 100, 100, 0.6);
-                    rect(x, y, size, size);
+            else if (currentDimension === 'fractal') {
+                // Fractal patterns
+                for (let i = 0; i < pixels.length; i++) {
+                    const row = Math.floor(i / 80);
+                    const col = i % 80;
+                    let x = (col - 40) / 20;
+                    let y = (row - 22.5) / 20;
+                    let iter = 0;
+                    const maxIter = 50;
+                    
+                    while (x*x + y*y < 4 && iter < maxIter) {
+                        const xtemp = x*x - y*y + Math.sin(frameCount * 0.01);
+                        y = 2*x*y + Math.cos(frameCount * 0.01);
+                        x = xtemp;
+                        iter++;
+                    }
+                    
+                    const intensity = iter === maxIter ? 0 : Math.floor(255 * iter / maxIter);
+                    pixels[i].style.background = `rgb(${intensity}, 0, ${255 - intensity})`;
                 }
             }
             else {
-                // Quantum realm - superposition effect
-                for (let i = 0; i < 150; i++) {
-                    const x = random(width);
-                    const y = random(height);
-                    const size = random(0.5, 2);
-                    const alpha = random(0.1, 0.5);
-                    if (random() > 0.7) {
-                        fill(200, 100, 100, alpha);
-                        rect(x, y, size, size);
+                // Quantum superposition effect
+                for (let i = 0; i < pixels.length; i++) {
+                    if (Math.random() > 0.7) {
+                        const hue = (frameCount * 2 + i * 0.1) % 360;
+                        pixels[i].style.background = `hsl(${hue}, 100%, 50%)`;
+                    } else {
+                        pixels[i].style.background = '#000';
                     }
                 }
             }
+            
+            requestAnimationFrame(animate);
         }
-
-        function windowResized() {
-            resizeCanvas(window.innerWidth, window.innerHeight);
-        }
+        
+        // Start animation
+        animate();
     </script>
 </body>
 </html>
