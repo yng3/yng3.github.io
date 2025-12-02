@@ -1,223 +1,106 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="YNG3 - Enter the realm of mystery and wonder. Discover creative projects and digital experiences.">
     <title>YNG3</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        text-align: center;
       }
 
-```
-  body {
-    background-color: #000;
-    color: #fff;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-  }
+      h1 {
+        font-size: 4em;
+        margin-top: 100px;
+        letter-spacing: 5px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
 
-  .logo {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 80px;
-    width: auto;
-    z-index: 10;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-  }
+      p {
+        font-size: 1.5em;
+        margin-top: 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
 
-  .logo:hover {
-    opacity: 1;
-  }
+      a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      }
 
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 120px 20px 100px;
-    gap: 40px;
-  }
+      .logo {
+        height: 100px; /* adjust the height to your desired size */
+        width: auto;
+      }
 
-  .title-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: .5em;
+        padding: 10px 0;
+        text-align: center;
+      }
 
-  h1 {
-    font-size: clamp(2.5em, 8vw, 4em);
-    letter-spacing: 5px;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-    transition: text-shadow 0.3s ease;
-  }
+      .footer p {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+      }
 
-  h1:hover {
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
-  }
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+      }
 
-  .title-link {
-    text-decoration: none;
-    color: #fff;
-    border: none;
-  }
+      .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 20px;
+        background-color: #fff;
+        color: #000;
+        border-radius: 5px;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
 
-  p {
-    font-size: clamp(1em, 3vw, 1.5em);
-    max-width: 800px;
-    line-height: 1.6;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    padding: 0 20px;
-  }
-
-  .text-link {
-    color: #fff;
-    text-decoration: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-    transition: border-color 0.3s ease;
-  }
-
-  .text-link:hover {
-    border-bottom-color: rgba(255, 255, 255, 0.8);
-  }
-
-  .button-section {
-    margin-top: 20px;
-  }
-
-  .button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #fff;
-    color: #000;
-    border-radius: 5px;
-    font-size: clamp(1em, 2.5vw, 1.2em);
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-decoration: none;
-    border: 2px solid #fff;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  }
-
-  .button:hover {
-    background-color: #000;
-    color: #fff;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px);
-  }
-
-  .footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    font-size: 0.85em;
-    padding: 15px 20px;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .footer p {
-    margin: 5px 0;
-    padding: 0;
-    line-height: 1.4;
-    font-size: 1em;
-    text-shadow: none;
-  }
-
-  .footer a {
-    color: #fff;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    transition: border-color 0.3s ease;
-  }
-
-  .footer a:hover {
-    border-bottom-color: rgba(255, 255, 255, 0.8);
-  }
-
-  @media (max-width: 768px) {
-    .logo {
-      height: 60px;
-      top: 15px;
-    }
-
-    main {
-      padding: 100px 15px 80px;
-      gap: 30px;
-    }
-
-    h1 {
-      letter-spacing: 3px;
-    }
-
-    .button {
-      padding: 12px 24px;
-      letter-spacing: 1.5px;
-    }
-
-    .footer {
-      font-size: 0.75em;
-      padding: 12px 15px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    main {
-      gap: 25px;
-    }
-
-    .footer p {
-      font-size: 0.95em;
-    }
-  }
-</style>
-```
-
+      .button:hover {
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <img src="logo.png" alt="YNG3 Logo" class="logo">
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="center">
+      <a href="https://yng3.github.io/"><h1 class="animate__animated animate__fadeInDown">YNG3</h1></a>
+    </div>
+    <p class="animate__animated animate__fadeInUp">you have stumbled upon the realm of mystery and wonder. follow me into <a href="https://yng3.github.io/no-credentials-needed">the universe</a> and uncover the secrets of my creations.</p>
 
-```
-<main>
-  <div class="title-section">
-    <a href="https://yng3.github.io/" class="title-link">
-      <h1 class="animate__animated animate__fadeInDown">YNG3</h1>
-    </a>
+    <div class="center">
+            <a href="pixel.html" class="button">Enter the Pixel Dimension</a>
+    </div>
     
-    <p class="animate__animated animate__fadeInUp">
-      you have stumbled upon the realm of mystery and wonder. follow me into 
-      <a href="https://yng3.github.io/no-credentials-needed" class="text-link">the universe</a> 
-      and uncover the secrets of my creations.
-    </p>
-  </div>
-
-  <div class="button-section animate__animated animate__fadeInUp animate__delay-1s">
-    <a href="pixel.html" class="button">Enter the Pixel Dimension</a>
-  </div>
-</main>
-
-<footer class="footer">
-  <p>&copy; 2025 YNG3</p>
-  <p><a href="https://openai.com/">advanced intelligence</a></p>
-  <p>visit my <a href="https://github.com/YNG3">github</a> for all the latest hax</p>
-</footer>
-```
-
+    <div class="footer">
+      <p>&copy; 2025 YNG3</p>
+      <p><a href="https://openai.com/">advanced intelligence</a></p>
+      <p>visit my <a href="https://github.com/YNG3">github</a> for all the latest hax</p>
+    </div>
   </body>
 </html>
