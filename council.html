@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Council | YNG3</title>
+  <link rel="shortcut icon" href="logo.ico" type="image/x-icon" />
+  <style>
+    :root {
+      --bg: #020202;
+      --panel: rgba(8, 8, 12, 0.78);
+      --panel-strong: rgba(15, 15, 24, 0.92);
+      --line: rgba(255,255,255,0.13);
+      --line-hot: rgba(150, 210, 255, 0.42);
+      --text: #f5f5f5;
+      --muted: rgba(245,245,245,0.62);
+      --soft: rgba(245,245,245,0.35);
+      --cyan: #76e4ff;
+      --violet: #b389ff;
+      --gold: #ffd166;
+      --green: #84f59f;
+      --red: #ff6b6b;
+      --radius: 18px;
+      --shadow: 0 24px 80px rgba(0,0,0,0.55);
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --sans: "Helvetica Neue", Arial, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(118,228,255,0.16), transparent 32%),
+        radial-gradient(circle at 82% 18%, rgba(179,137,255,0.18), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(255,209,102,0.08), transparent 38%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 0 58%, transparent 88%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(transparent 50%, rgba(255,255,255,0.018) 50%);
+      background-size: 100% 4px;
+      mix-blend-mode: screen;
+      opacity: 0.45;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
+      padding: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.46);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .sigil {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-hot);
+      background: radial-gradient(circle, rgba(118,228,255,0.28), rgba(179,137,255,0.12) 45%, rgba(0,0,0,0.3));
+      box-shadow: 0 0 24px rgba(118,228,255,0.22);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2vw, 2rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .system-state {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(255,255,255,0.04);
+      white-space: nowrap;
+    }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 14px var(--green);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .48; transform: scale(.72); } }
+
+    .nav-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    button, .link-button {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.055);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font: 700 0.78rem var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+    }
+
+    button:hover, .link-button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(118,228,255,0.55);
+      background: rgba(118,228,255,0.11);
+    }
+
+    button.primary {
+      background: linear-gradient(135deg, rgba(118,228,255,0.95), rgba(179,137,255,0.85));
+      color: #050507;
+      border-color: transparent;
+    }
+
+    .grid {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 280px minmax(420px, 1fr) 330px;
+      gap: 14px;
+    }
+
+    .panel {
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px 14px 12px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .panel-title {
+      margin: 0;
+      font: 800 0.82rem var(--mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .tiny { color: var(--muted); font: 0.72rem var(--mono); }
+
+    .members {
+      padding: 12px;
+      overflow: auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    .member {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,0.035);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .member.active { border-color: rgba(118,228,255,0.52); background: rgba(118,228,255,0.07); }
+    .member.thinking { border-color: rgba(255,209,102,0.45); }
+
+    .member::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: var(--accent, var(--cyan));
+      opacity: 0.8;
+    }
+
+    .member-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .member-name { font-weight: 900; letter-spacing: 0.12em; font-size: 0.88rem; }
+    .member-role { margin-top: 6px; color: var(--muted); font-size: 0.83rem; line-height: 1.35; }
+    .status { font: 0.68rem var(--mono); color: var(--soft); text-transform: uppercase; }
+
+    .thread {
+      min-height: 0;
+      padding: 14px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scroll-behavior: smooth;
+    }
+
+    .message {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      padding: 13px;
+      max-width: 84%;
+      animation: rise .24s ease both;
+    }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .message.user {
+      align-self: flex-end;
+      border-color: rgba(132,245,159,0.34);
+      background: rgba(132,245,159,0.07);
+    }
+
+    .message.agent {
+      align-self: flex-start;
+      border-color: rgba(118,228,255,0.32);
+    }
+
+    .message.system {
+      align-self: center;
+      max-width: 96%;
+      color: var(--muted);
+      background: rgba(255,209,102,0.055);
+      border-color: rgba(255,209,102,0.2);
+    }
+
+    .msg-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .msg-body { line-height: 1.48; color: rgba(255,255,255,0.9); }
+
+    .composer {
+      border-top: 1px solid var(--line);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      background: var(--panel-strong);
+    }
+
+    textarea {
+      width: 100%;
+      resize: none;
+      min-height: 54px;
+      max-height: 130px;
+      padding: 13px 14px;
+      border-radius: 15px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.34);
+      color: var(--text);
+      outline: none;
+      font: 0.95rem/1.35 var(--sans);
+    }
+
+    textarea:focus { border-color: rgba(118,228,255,0.55); box-shadow: 0 0 0 3px rgba(118,228,255,0.08); }
+
+    .side-content {
+      padding: 12px;
+      overflow: auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .build-card, .timeline-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .build-card strong, .timeline-item strong { display: block; margin-bottom: 7px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.78rem; }
+    .build-card p, .timeline-item p { margin: 0; color: var(--muted); font-size: 0.88rem; line-height: 1.42; }
+
+    .progress {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .bar {
+      height: 100%;
+      width: 34%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      transition: width .35s ease;
+    }
+
+    .transport-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .transport { border: 1px solid var(--line); border-radius: 12px; padding: 9px; color: var(--muted); font: .72rem var(--mono); text-transform: uppercase; background: rgba(0,0,0,.18); }
+    .transport.on { color: var(--green); border-color: rgba(132,245,159,.28); }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%) translateY(80px);
+      opacity: 0;
+      pointer-events: none;
+      border: 1px solid rgba(118,228,255,.34);
+      background: rgba(0,0,0,.82);
+      color: white;
+      padding: 12px 14px;
+      border-radius: 999px;
+      font: .78rem var(--mono);
+      letter-spacing: .08em;
+      z-index: 20;
+      transition: .25s ease;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 1120px) {
+      body { overflow: auto; }
+      .shell { height: auto; min-height: 100vh; }
+      .grid { grid-template-columns: 1fr; }
+      .panel { min-height: 420px; }
+      .topbar { grid-template-columns: 1fr; align-items: start; }
+      .system-state { justify-content: flex-start; }
+      .nav-actions { justify-content: flex-start; }
+    }
+
+    @media (max-width: 620px) {
+      .shell { padding: 10px; }
+      .message { max-width: 96%; }
+      .composer { grid-template-columns: 1fr; }
+      .transport-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="sigil">Y3</div>
+        <div>
+          <h1>The Council</h1>
+          <div class="subtitle">local-first command room / static prototype</div>
+        </div>
+      </div>
+      <div class="system-state" aria-label="system state">
+        <span class="pill"><span class="pulse-dot"></span>LAN-first</span>
+        <span class="pill" id="capsuleCount">0 capsules</span>
+        <span class="pill">No backend attached</span>
+      </div>
+      <nav class="nav-actions">
+        <a class="link-button" href="index.html">Reality</a>
+        <a class="link-button" href="pixel.html">Pixel Realm</a>
+        <button id="resetBtn" type="button">Reset</button>
+      </nav>
+    </header>
+
+    <section class="grid">
+      <aside class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Council Members</h2>
+          <span class="tiny">presence</span>
+        </div>
+        <div class="members" id="members"></div>
+      </aside>
+
+      <section class="panel" aria-label="council discussion">
+        <div class="panel-header">
+          <h2 class="panel-title">Discussion Timeline</h2>
+          <span class="tiny" id="clock">--:--</span>
+        </div>
+        <div class="thread" id="thread"></div>
+        <form class="composer" id="composer">
+          <textarea id="input" placeholder="Speak to the Council. Example: design the first capsule protocol..." autocomplete="off"></textarea>
+          <button class="primary" type="submit">Transmit</button>
+        </form>
+      </section>
+
+      <aside class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">What is being built</h2>
+          <span class="tiny">phase 001</span>
+        </div>
+        <div class="side-content">
+          <article class="build-card">
+            <strong>Sovereign Local Network Lab</strong>
+            <p>Start with a private LAN and local services. Then prototype signed encrypted capsules that can move across replaceable transports.</p>
+            <div class="progress"><div class="bar" id="buildBar"></div></div>
+          </article>
+          <article class="build-card">
+            <strong>Transport Readiness</strong>
+            <div class="transport-list">
+              <div class="transport on">LocalStorage</div>
+              <div class="transport on">Browser</div>
+              <div class="transport">LAN Bridge</div>
+              <div class="transport">WebSocket</div>
+              <div class="transport">LoRa</div>
+              <div class="transport">Wi‑Fi Direct</div>
+            </div>
+          </article>
+          <article class="build-card">
+            <strong>Next Bridge</strong>
+            <p>When approved: add a tiny local server that lets Hermes write live events into this UI without requiring cloud hosting.</p>
+          </article>
+          <div id="activity"></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">capsule stored locally</div>
+
+  <script>
+    const council = [
+      { name: 'GNOSIS', role: 'Operator / human origin point', status: 'sovereign', accent: '#84f59f' },
+      { name: 'HERMES', role: 'Active agent: translates vision into executable steps', status: 'online', accent: '#76e4ff' },
+      { name: 'KAIROS', role: 'Timing: chooses the next right move', status: 'watching', accent: '#ffd166' },
+      { name: 'KRONOS', role: 'Structure: sequence, constraints, durability', status: 'indexing', accent: '#b3b3ff' },
+      { name: 'LOGOS', role: 'Reason: protocol, clarity, verification', status: 'checking', accent: '#ffffff' },
+      { name: 'QUINN', role: 'Creative disruption: asks what the others miss', status: 'sparking', accent: '#ff7ad9' }
+    ];
+
+    const defaultMessages = [
+      { speaker: 'SYSTEM', type: 'system', text: 'Council room initialized. This prototype is static, local-first, and stores capsules in this browser only.', time: now() },
+      { speaker: 'HERMES', type: 'agent', text: 'First mission: make the interface real. Then connect it to Hermes through a local bridge when the foundation feels right.', time: now() },
+      { speaker: 'LOGOS', type: 'agent', text: 'Constraint: no backend, no cloud dependency, no fake promises. GitHub Pages can host the shell; local infrastructure gives it agency later.', time: now() }
+    ];
+
+    const responses = {
+      HERMES: [
+        'I can turn that into a build step: define the smallest useful capsule, then prove it can be created, stored, and replayed locally.',
+        'The practical path is interface first, local bridge second, mesh transport third. Each layer should work without the next.',
+        'I am marking this as a prototype event. Later, this same event can be signed, encrypted, and routed.'
+      ],
+      KAIROS: [
+        'The next right move is not global replacement. It is one room, one LAN, one useful loop that survives internet loss.',
+        'Timing favors a narrow win: local chat, local files, local identity. Make that feel alive first.',
+        'Do not wait for perfect hardware. Prototype the ritual of communication now.'
+      ],
+      KRONOS: [
+        'Sequence: inventory hardware, isolate LAN, add local DNS, host one service, then introduce capsule routing.',
+        'A protocol without logs becomes mythology. Every capsule needs timestamp, author, purpose, and verification state.',
+        'Durability requires boring pieces: backups, reset paths, and plain files that can outlive the interface.'
+      ],
+      LOGOS: [
+        'Define the capsule as data first: id, sender key, recipient key, created_at, expires_at, payload, signature.',
+        'Avoid claiming privacy until we can specify what metadata remains visible. Threat model before victory lap.',
+        'Transport must be replaceable. Identity and message integrity should not depend on Wi‑Fi, Comcast, or GitHub Pages.'
+      ],
+      QUINN: [
+        'What if the network is not a pipe but a pact? Devices only speak when trust already exists.',
+        'The UI should feel like a living table, not a dashboard. Make the system invite participation.',
+        'Keep one strange door open: optical, LoRa, QR, USB. The future may enter through the least corporate path.'
+      ]
+    };
+
+    const state = {
+      messages: loadMessages(),
+      active: 'HERMES',
+      progress: Number(localStorage.getItem('councilProgress') || '34')
+    };
+
+    const membersEl = document.getElementById('members');
+    const threadEl = document.getElementById('thread');
+    const activityEl = document.getElementById('activity');
+    const inputEl = document.getElementById('input');
+    const clockEl = document.getElementById('clock');
+    const capsuleCountEl = document.getElementById('capsuleCount');
+    const buildBarEl = document.getElementById('buildBar');
+    const toastEl = document.getElementById('toast');
+
+    function now() {
+      return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function loadMessages() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('councilMessages') || 'null');
+        return Array.isArray(saved) && saved.length ? saved : defaultMessages;
+      } catch (_) {
+        return defaultMessages;
+      }
+    }
+
+    function save() {
+      localStorage.setItem('councilMessages', JSON.stringify(state.messages));
+      localStorage.setItem('councilProgress', String(state.progress));
+    }
+
+    function renderMembers(thinking = null) {
+      membersEl.innerHTML = council.map(member => `
+        <article class="member ${member.name === state.active ? 'active' : ''} ${member.name === thinking ? 'thinking' : ''}" style="--accent:${member.accent}">
+          <div class="member-top">
+            <div class="member-name">${member.name}</div>
+            <div class="status">${member.name === thinking ? 'thinking' : member.status}</div>
+          </div>
+          <div class="member-role">${member.role}</div>
+        </article>
+      `).join('');
+    }
+
+    function renderThread() {
+      threadEl.innerHTML = state.messages.map(msg => `
+        <article class="message ${msg.type}">
+          <div class="msg-meta"><span>${msg.speaker}</span><span>${msg.time}</span></div>
+          <div class="msg-body">${escapeHTML(msg.text)}</div>
+        </article>
+      `).join('');
+      threadEl.scrollTop = threadEl.scrollHeight;
+      capsuleCountEl.textContent = `${state.messages.length} capsules`;
+    }
+
+    function renderActivity() {
+      const recent = state.messages.slice(-4).reverse();
+      activityEl.innerHTML = recent.map((msg, i) => `
+        <article class="timeline-item">
+          <strong>${i === 0 ? 'Latest capsule' : msg.speaker}</strong>
+          <p>${escapeHTML(msg.text).slice(0, 92)}${msg.text.length > 92 ? '…' : ''}</p>
+        </article>
+      `).join('');
+      buildBarEl.style.width = `${Math.min(96, state.progress)}%`;
+    }
+
+    function escapeHTML(str) {
+      return String(str).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
+    }
+
+    function addMessage(speaker, type, text) {
+      state.messages.push({ speaker, type, text, time: now() });
+      state.progress = Math.min(96, state.progress + (type === 'user' ? 3 : 2));
+      save();
+      renderAll();
+    }
+
+    function pickResponse(name, prompt) {
+      const bank = responses[name] || responses.HERMES;
+      const seed = [...prompt].reduce((sum, ch) => sum + ch.charCodeAt(0), 0) + state.messages.length;
+      return bank[seed % bank.length];
+    }
+
+    function councilRespond(prompt) {
+      const order = ['HERMES', 'LOGOS', 'KAIROS', 'KRONOS', 'QUINN'];
+      const first = order[(state.messages.length + prompt.length) % order.length];
+      const second = order[(order.indexOf(first) + 2) % order.length];
+      [first, second].forEach((name, index) => {
+        setTimeout(() => {
+          state.active = name;
+          renderMembers(name);
+          setTimeout(() => {
+            addMessage(name, 'agent', pickResponse(name, prompt));
+            state.active = name;
+            renderMembers();
+            showToast(`${name} capsule stored locally`);
+          }, 520);
+        }, 340 + index * 980);
+      });
+    }
+
+    function showToast(text) {
+      toastEl.textContent = text;
+      toastEl.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toastEl.classList.remove('show'), 1600);
+    }
+
+    function renderAll() {
+      renderMembers();
+      renderThread();
+      renderActivity();
+      clockEl.textContent = now();
+    }
+
+    document.getElementById('composer').addEventListener('submit', event => {
+      event.preventDefault();
+      const text = inputEl.value.trim();
+      if (!text) return;
+      inputEl.value = '';
+      addMessage('GNOSIS', 'user', text);
+      showToast('GNOSIS capsule stored locally');
+      councilRespond(text);
+    });
+
+    inputEl.addEventListener('keydown', event => {
+      if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') {
+        document.getElementById('composer').requestSubmit();
+      }
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      localStorage.removeItem('councilMessages');
+      localStorage.removeItem('councilProgress');
+      state.messages = [...defaultMessages];
+      state.progress = 34;
+      save();
+      renderAll();
+      showToast('council reset');
+    });
+
+    setInterval(() => { clockEl.textContent = now(); }, 1000 * 20);
+    renderAll();
+  </script>
+</body>
+</html>
