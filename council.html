@@ -401,6 +401,92 @@
     }
     .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
+    body.locked .shell,
+    body.locked .toast { display: none; }
+
+    .access-screen {
+      min-height: 100vh;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      position: relative;
+      z-index: 4;
+    }
+
+    body.locked .access-screen { display: grid; }
+
+    .access-card {
+      width: min(460px, 100%);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(14,14,22,.88), rgba(0,0,0,.82));
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(20px);
+      padding: 28px;
+      text-align: center;
+    }
+
+    .access-sigil {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-hot);
+      border-radius: 20px;
+      background: radial-gradient(circle, rgba(118,228,255,.26), rgba(179,137,255,.12) 48%, rgba(0,0,0,.24));
+      box-shadow: 0 0 36px rgba(118,228,255,.22);
+      font-weight: 900;
+      letter-spacing: -.08em;
+    }
+
+    .access-card h2 {
+      margin: 0 0 10px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      font-size: 1.05rem;
+    }
+
+    .access-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: .9rem;
+    }
+
+    .access-card input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      outline: none;
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font: .86rem var(--mono);
+      letter-spacing: .08em;
+    }
+
+    .access-card button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 13px 14px;
+      border: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      color: #030306;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .access-note {
+      min-height: 18px;
+      margin-top: 12px !important;
+      color: var(--soft) !important;
+      font: .72rem var(--mono) !important;
+    }
+
     @media (max-width: 1120px) {
       body { overflow: auto; }
       .shell { height: auto; min-height: 100vh; }
@@ -419,7 +505,19 @@
     }
   </style>
 </head>
-<body>
+<body class="locked">
+  <section class="access-screen" id="accessScreen" aria-live="polite">
+    <div class="access-card">
+      <div class="access-sigil">Y3</div>
+      <h2>Council Gate</h2>
+      <p>This route requires operator verification in this browser session. Enter the phrase or return through the main gate.</p>
+      <input id="councilKey" type="password" autocomplete="off" placeholder="operator phrase" />
+      <button id="councilUnlock" type="button">Open Council</button>
+      <p class="access-note" id="councilNote">awaiting signal</p>
+      <p><a href="index.html">return to reality</a></p>
+    </div>
+  </section>
+
   <main class="shell">
     <header class="topbar">
       <div class="brand">
@@ -497,6 +595,49 @@
   <div class="toast" id="toast">capsule stored locally</div>
 
   <script>
+    const operatorHash = '5e089c032a3eef886d71b95f528e40ec428c48968db7ad195c09d4654f8c6036';
+    const councilKey = document.getElementById('councilKey');
+    const councilUnlock = document.getElementById('councilUnlock');
+    const councilNote = document.getElementById('councilNote');
+
+    async function sha256(value) {
+      const data = new TextEncoder().encode(value.trim().toLowerCase());
+      const digest = await crypto.subtle.digest('SHA-256', data);
+      return Array.from(new Uint8Array(digest)).map(byte => byte.toString(16).padStart(2, '0')).join('');
+    }
+
+    function unlockCouncil() {
+      sessionStorage.setItem('yng3.operator', 'verified');
+      document.body.classList.remove('locked');
+      window.setTimeout(() => document.getElementById('input')?.focus(), 120);
+    }
+
+    if (sessionStorage.getItem('yng3.operator') === 'verified') {
+      unlockCouncil();
+    } else {
+      window.setTimeout(() => councilKey?.focus(), 120);
+    }
+
+    councilUnlock?.addEventListener('click', async () => {
+      if (!councilKey.value.trim()) {
+        councilNote.textContent = 'signal required';
+        return;
+      }
+
+      if (await sha256(councilKey.value) === operatorHash) {
+        councilNote.textContent = 'operator verified';
+        unlockCouncil();
+      } else {
+        councilNote.textContent = 'access denied // wrong resonance';
+        councilKey.value = '';
+        councilKey.focus();
+      }
+    });
+
+    councilKey?.addEventListener('keydown', event => {
+      if (event.key === 'Enter') councilUnlock.click();
+    });
+
     const council = [
       { name: 'GNOSIS', role: 'Operator / human origin point', status: 'sovereign', accent: '#84f59f' },
       { name: 'HERMES', role: 'Active agent: translates vision into executable steps', status: 'online', accent: '#76e4ff' },
