@@ -85,6 +85,59 @@
         cursor: pointer;
       }
 
+      /* Featured project entry: QUINN */
+      .hero-center {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .quinn-entry {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 19px;
+        color: #e4f9ef;
+        border: 1px solid rgba(137, 219, 179, .33);
+        border-radius: 999px;
+        background: rgba(50, 125, 91, .12);
+        box-shadow: 0 0 22px rgba(68, 164, 115, .08), inset 0 1px 0 rgba(255,255,255,.045);
+        font-size: .75rem;
+        font-weight: 500;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        text-shadow: none;
+        text-decoration: none;
+        transition: border-color .25s ease, background .25s ease, box-shadow .25s ease, transform .25s ease;
+      }
+
+      .quinn-entry:hover, .quinn-entry:focus-visible {
+        color: #fff;
+        background: rgba(50, 125, 91, .24);
+        border-color: rgba(156, 252, 202, .68);
+        box-shadow: 0 0 30px rgba(68, 164, 115, .18);
+        transform: translateY(-2px);
+      }
+
+      .quinn-signal {
+        width: 7px;
+        height: 7px;
+        flex: none;
+        border-radius: 50%;
+        background: #9df0c3;
+        box-shadow: 0 0 12px rgba(157,240,195,.65);
+      }
+
+      .quinn-entry small {
+        color: rgba(183, 234, 204, .64);
+        font-size: .65rem;
+        letter-spacing: .14em;
+      }
+
+      @media (max-width: 480px) {
+        .quinn-entry { padding: 12px 15px; gap: 9px; font-size: .7rem; }
+        .quinn-entry small { font-size: .6rem; }
+      }
+
       .operator-glyph {
         position: fixed;
         right: 18px;
@@ -212,8 +265,13 @@
   </head>
   <body>
     <img src="logo.png" alt="Logo" class="logo">
-    <div class="center">
+    <div class="center hero-center">
       <a href="https://yng3.github.io/"><h1 class="animate__animated animate__fadeInDown">YNG3</h1></a>
+      <a class="quinn-entry animate__animated animate__fadeInUp" href="/quinn/" aria-label="Explore QUINN project">
+        <span class="quinn-signal" aria-hidden="true"></span>
+        <span>QUINN</span>
+        <small>Explore project ↗</small>
+      </a>
     </div>
     <p class="animate__animated animate__fadeInUp">you have stumbled upon the realm of mystery and wonder. follow me into <a href="https://yng3.github.io/no-credentials-needed">the universe</a> and uncover the secrets of my creations.</p>
 
