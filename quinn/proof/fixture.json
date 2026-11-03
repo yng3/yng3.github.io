@@ -1,0 +1,38 @@
+{
+  "controller_public_key_b64u": "dknXjTbNhYXrwOLK2yt-iZOu2jjMXQCTqsYQvC3U92Q",
+  "description": "Synthetic disposable-key prototype, not an installed QUINN worker receipt",
+  "envelope": {
+    "budget_ceiling": 5,
+    "capability": "compute.sum",
+    "consent_id": "consent-DEMO",
+    "controller_id": "controller-DEMO",
+    "expires_at": 1800000250,
+    "issued_at": 1800000000,
+    "nonce": "cXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFx",
+    "payload_sha256": "2bb74ff1401eb1fa4a3dde312d78545805b45e5f039190398d54160711358a87",
+    "request_id": "request-DEMO",
+    "schema": "quinn-remote-admission/v0.1",
+    "signature": "lkwfxGfDO6FOjgrtY247AhXaVV0GcYnvXsdttDfBz0kZ6r_TX_rkch0qiiHyjG4FEdcHgRvg59lMu32jKH7BBA",
+    "worker_id": "worker-DEMO"
+  },
+  "fixture_schema": "quinn-proof-demo/v0.1",
+  "payload_text": "{\"numbers\":[5,8]}",
+  "receipt": {
+    "attempt_id": "attempt-DEMO",
+    "capability": "compute.sum",
+    "consent_id": "consent-DEMO",
+    "controller_id": "controller-DEMO",
+    "cost_units": 3,
+    "envelope_sha256": "efc776374bad4ceb78986ffa0a4b465bc811034f5eaf1c31892c5e68091e0a57",
+    "outcome": "completed",
+    "payload_sha256": "2bb74ff1401eb1fa4a3dde312d78545805b45e5f039190398d54160711358a87",
+    "request_id": "request-DEMO",
+    "result_sha256": "8bfdb31f7c6b563427b2a86b9dc7c1d159e7e105c659f0d014342c96ab10f453",
+    "schema": "quinn-remote-evidence/v0.1",
+    "signature": "RMBEomJ3tj1v9EofMq4ZEh_xCBsvuhBxQFz_vSN_AcwLjH-xqihy_-IGmjDt7SOeI5pjCt3mJueBjhiC_WHTAg",
+    "worker_id": "worker-DEMO",
+    "worker_key_id": "ec61869b4a60df51959917d8be95cce4a34506d91658da6c547fd7e2cd3ccca1"
+  },
+  "result_text": "{\"sum\":13}",
+  "worker_public_key_b64u": "CX04NPNWUwRNC6vwkCmxCQ38LAB4meSZObPUeQOFOO0"
+}

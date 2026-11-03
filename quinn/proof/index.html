@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080d10">
+<meta name="description" content="A browser-only, disposable-key demonstration of cryptographically checkable signed claims in QUINN's experimental prototype.">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+<title>Proof Lab — QUINN</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="../">QUINN.</a><a class="back" href="../">RETURN TO PROJECT</a></div></header>
+<main id="lab">
+<section class="hero wrap"><p class="kicker">QUINN / PROOF LAB / EXPERIMENT 001</p><h1>Trust,<br><em>tested.</em></h1>
+<p class="lead">A signed claim is only useful if another party can check it. This local demonstration verifies synthetic request and receipt signatures, then shows what happens when the recorded result changes.</p>
+<div class="disclaimer">TEST VECTORS ONLY. The disposable public keys are bundled with the example. Their verification establishes self-consistency, not independently trusted identity, consent, execution, host attestation, or a financial charge. This is not connected to QUINN's operational worker.</div>
+</section>
+<section class="lab wrap" aria-labelledby="lab-title"><div class="lab-head"><span class="kicker" id="lab-title">01 / EXPERIMENTAL VERIFICATION</span><span class="kicker">BROWSER ONLY / NO BACKEND</span></div><div class="lab-card"><span class="kicker">PROTOTYPE EVIDENCE / ED25519</span><h2 class="state" id="lab-status" data-state="loading" role="status" aria-live="polite">VERIFYING TEST VECTOR</h2><div class="checks" id="checks"></div><div class="actions"><button id="verify-btn" type="button">Verify original</button><button id="tamper-btn" type="button">Alter the result</button></div></div>
+<div class="boundary"><h2>Proof has boundaries.</h2><p>The signatures demonstrate that the bundled keys signed these particular bytes. Request and result hashes establish that the sample claims remain unchanged. They cannot show whether a real worker ran a task, whether a human approved it, whether a host is genuine, or whether any money was spent. External trust and independently verified operational records are future integration requirements.</p></div>
+</section></main>
+<footer><div class="wrap footer"><span>QUINN / PUBLIC RESEARCH DEMONSTRATION</span><span>NO LIVE SYSTEM ACCESS</span></div></footer>
+</body>
+</html>
