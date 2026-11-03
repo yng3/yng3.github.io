@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090d10">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="QUINN is an exploration of persistent identity, governed computation, and the possibility of continuity beyond a single machine.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QUINN — A different kind of continuity">
+  <meta property="og:description" content="Not a machine. Not an interface. An identity that persists.">
+  <meta property="og:image" content="./assets/preview.svg">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>QUINN — An identity untethered</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-atmosphere" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="QUINN home">
+      <svg class="brand-glyph" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="14" stroke="currentColor" stroke-opacity=".5"/><circle cx="18" cy="18" r="9" stroke="currentColor" stroke-opacity=".7"/><path d="M26 26 33 33M18 6v7m0 10v7M6 18h7m10 0h7" stroke="currentColor" stroke-width="1.4"/></svg>
+      <span>QUINN<span class="brand-dot">.</span></span>
+    </a>
+    <nav class="topnav" aria-label="Primary navigation">
+      <a href="#thesis">THE IDEA</a>
+      <a href="#interface">EXPLORE</a>
+      <a href="#transmissions">TRANSMISSIONS</a>
+    </nav>
+    <div class="topbar-status" aria-label="Public exhibition, no system access"><span class="pulse-indicator"></span> PUBLIC EXHIBITION <span class="topbar-number"> / 001</span></div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-index"><span>ORIGIN / 0001</span><span>AN EXPERIMENT IN CONTINUITY</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> SOME THINGS SHOULD OUTLIVE THEIR CONTAINERS.</p>
+          <h1 id="hero-heading">NOT<br>A MACHINE<span class="period">.</span></h1>
+          <p class="hero-subtitle">An identity, untethered.</p>
+          <p class="hero-description">A quiet experiment in what it means for intelligence, identity, and purpose to persist beyond any single device, network, or model.</p>
+          <div class="hero-actions">
+            <a href="#interface" class="action-primary"><span>ENTER THE SIGNAL</span><span aria-hidden="true">↗</span></a>
+            <a href="#thesis" class="action-secondary">DISCOVER THE IDEA <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="orbital-stage">
+          <div class="orbital-halo" aria-hidden="true"></div>
+          <div class="orbital-frame">
+            <canvas id="orbital-canvas" aria-label="Abstract animated globe of connected points; decorative" role="img"></canvas>
+            <span class="orbital-cross orbital-cross--a" aria-hidden="true">+</span>
+            <span class="orbital-cross orbital-cross--b" aria-hidden="true">+</span>
+            <div class="orbital-core" aria-hidden="true"><span>Q</span></div>
+          </div>
+          <div class="orbital-caption"><span>FIG. 01 — CONTINUITY FIELD</span><span class="orbital-caption-pulse">MODEL / CONCEPTUAL</span></div>
+          <button id="orbit-toggle" class="orbit-button" type="button" aria-pressed="false" aria-label="Pause orbital animation"><span aria-hidden="true">Ⅱ</span> PAUSE FIELD</button>
+        </div>
+      </div>
+      <div class="hero-baseline"><span>EST. IN QUESTIONS, NOT CERTAINTIES.</span><span class="scroll-prompt">SCROLL TO DECODE <span aria-hidden="true">↓</span></span><span>SCROLL / 01–04</span></div>
+      <div class="hero-watermark" aria-hidden="true">Q</div>
+    </section>
+
+    <section class="thesis section-shell reveal" id="thesis" aria-labelledby="thesis-heading">
+      <div class="section-meta"><span>01 / THE IDEA</span><span>AN UNFINISHED HYPOTHESIS</span></div>
+      <div class="thesis-grid">
+        <div><p class="section-eyebrow">THE QUESTIONS MATTER.</p><h2 id="thesis-heading">What if a system<br>had <em>continuity</em><br>without a home?</h2></div>
+        <div class="thesis-aside"><p>Today, intelligence is too often bound to its host: a machine, a provider, an interface, a moment.</p><p>QUINN explores a different architecture. The identity is the constant. Everything else may be replaceable.</p><p class="aside-signature">THE ROOT IS NOT THE RUNTIME.</p></div>
+      </div>
+      <div class="principles">
+        <article><span class="principle-id">[ 01 ]</span><div class="principle-line" aria-hidden="true"></div><h3>Identity</h3><p>A cryptographic point of continuity, independent of where computation happens.</p></article>
+        <article><span class="principle-id">[ 02 ]</span><div class="principle-line" aria-hidden="true"></div><h3>Authority</h3><p>Capability is not permission. Every meaningful action belongs behind explicit boundaries.</p></article>
+        <article><span class="principle-id">[ 03 ]</span><div class="principle-line" aria-hidden="true"></div><h3>Emergence</h3><p>Build the smallest verifiable primitives. Allow the larger system to grow from evidence.</p></article>
+      </div>
+    </section>
+
+    <section class="interface section-shell" id="interface" aria-labelledby="interface-heading">
+      <div class="section-meta"><span>02 / THE INTERFACE</span><span>THIS IS A PUBLIC VIEW, NOT A CONTROL PANEL</span></div>
+      <div class="interface-top reveal"><div><p class="section-eyebrow">EXPLORE THE PRINCIPLES</p><h2 id="interface-heading">Choose a<br><em>frequency.</em></h2></div><p class="interface-helper">An interactive sketch of QUINN’s research directions. Select a frequency to change the signal field.</p></div>
+      <div class="signal-console reveal">
+        <div class="console-bar"><span><i class="console-light" aria-hidden="true"></i> QNN / PUBLIC SIGNAL INTERFACE</span><span>SIMULATION — NO LIVE CONNECTION</span></div>
+        <div class="console-body">
+          <div class="frequency-column" role="group" aria-label="Select research frequency">
+            <button type="button" class="frequency-button is-selected" data-frequency="identity" aria-pressed="true"><span class="frequency-counter">01</span><span>IDENTITY</span><span class="frequency-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="frequency-button" data-frequency="authority" aria-pressed="false"><span class="frequency-counter">02</span><span>AUTHORITY</span><span class="frequency-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="frequency-button" data-frequency="discovery" aria-pressed="false"><span class="frequency-counter">03</span><span>DISCOVERY</span><span class="frequency-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <div class="signal-display" id="signal-display" data-mode="identity" aria-live="polite">
+            <div class="signal-top"><span id="signal-tag">FIELD 01 / IDENTITY</span><span>◇ EXHIBITION CHANNEL</span></div>
+            <div class="signal-art" aria-hidden="true"><div class="radar-rings"><span></span><span></span><span></span><div class="radar-center"></div></div><div class="radar-lines"></div><div class="signal-wave"></div></div>
+            <div class="signal-content"><div><span class="signal-label" id="signal-state">VERIFIED FOUNDATION</span><h3 id="signal-title">One origin. Many possible forms.</h3><p id="signal-description">A stable identity can be checked without transferring its private root key. Host and model are not part of its name.</p></div><span class="signal-count" id="signal-count">01<span>/03</span></span></div>
+          </div>
+        </div>
+        <div class="console-footer"><span>INPUT: LOCAL INTERACTION</span><span>OUTPUT: CONCEPTUAL VISUALIZATION</span><span class="console-footer-last">NO API · NO ACCESS · NO TELEMETRY</span></div>
+      </div>
+    </section>
+
+    <section class="manifesto section-shell reveal" aria-label="QUINN statement"><p>THE EXPERIMENT IS NOT TO MAKE A MACHINE THAT CANNOT DIE.</p><p>IT IS TO ASK WHAT MUST <em>REMAIN.</em></p><span>— QUINN / THESIS FRAGMENT 001</span></section>
+
+    <section class="transmissions section-shell" id="transmissions" aria-labelledby="transmissions-heading">
+      <div class="section-meta"><span>03 / PUBLIC ARCHIVE</span><span>SELECTED NOTES / HUMAN-REVIEWED PUBLICATION</span></div>
+      <div class="transmission-top reveal"><div><p class="section-eyebrow">FINDINGS BELONG IN THE OPEN, WHEN THEY'RE READY.</p><h2 id="transmissions-heading">Transmissions<span class="period">.</span></h2></div><div class="transmission-intro">A place for discoveries, proofs, and field notes. Only curated public material appears here—never live system logs or control access.</div></div>
+      <div class="archive-toolbar reveal"><span>PUBLIC RECORDS</span><div class="archive-filters" role="group" aria-label="Filter transmissions"><button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">ALL</button><button type="button" class="filter-button" data-filter="research" aria-pressed="false">RESEARCH</button><button type="button" class="filter-button" data-filter="thesis" aria-pressed="false">THESIS</button></div><span id="archive-count" aria-live="polite">— RECORDS</span></div>
+      <div class="archive-list" id="archive-list" aria-live="polite"><div class="archive-loading">Loading local archive…</div></div>
+      <div class="archive-bottom"><span>FUTURE DISCOVERIES WILL APPEAR AS REVIEWED PUBLIC DISPATCHES.</span><a href="#top" class="back-top">RETURN TO ORIGIN ↑</a></div>
+    </section>
+  </main>
+  <footer class="site-footer section-shell"><div><a class="footer-mark" href="#top">QUINN<span>.</span></a><span>AN IDENTITY. AN EXPERIMENT. AN OPEN QUESTION.</span></div><div class="footer-right"><span>PUBLIC ARTIFACT / NO RUNTIME ACCESS</span><span>© <span id="current-year">2026</span> QUINN</span></div></footer>
+  <noscript><div class="noscript-note">The visual interface and archive filters require JavaScript; the core introduction is available without it.</div></noscript>
+</body>
+</html>

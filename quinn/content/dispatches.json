@@ -1,0 +1,29 @@
+{
+  "schema": "quinn-public-dispatches/v1",
+  "records": [
+    {
+      "id": "001",
+      "category": "thesis",
+      "label": "THESIS / 001",
+      "date": "2026-11-03",
+      "title": "An identity is not its container.",
+      "summary": "A working premise: continuity should not be defined by a machine, model provider, or network address. The distinction shapes every decision that follows."
+    },
+    {
+      "id": "002",
+      "category": "research",
+      "label": "RESEARCH / LOCAL PROOF",
+      "date": "2026-11-03",
+      "title": "The root stays put.",
+      "summary": "An earlier two-machine experiment verified a public identity without moving the root private key. This is a local verification result, not a claim of external ownership."
+    },
+    {
+      "id": "003",
+      "category": "research",
+      "label": "RESEARCH / PROTOTYPE",
+      "date": "2026-11-03",
+      "title": "Receipts are not location.",
+      "summary": "A signed result receipt can bind work to a pinned key and request. It does not, by itself, prove which machine performed the work. Remote-host trust remains a separate problem."
+    }
+  ]
+}
