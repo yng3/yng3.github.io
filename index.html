@@ -1,143 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#080a0b">
-  <meta name="description" content="YNG3 is an independent digital laboratory exploring intelligent systems, experimental interfaces, and digital worlds.">
-  <meta property="og:title" content="YNG3 — Independent Digital Laboratory">
-  <meta property="og:description" content="Building systems. Exploring other worlds.">
-  <title>YNG3 — Independent Digital Laboratory</title>
-  <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
-  <style>
+<html>
+  <head>
+    <title>YNG3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        text-align: center;
+      }
 
-      :root { color-scheme: dark; --bg:#080a0b; --surface:#101314; --fg:#edf0ee; --soft:#a4afaa; --muted:#727d78; --line:rgba(218,233,222,.13); --accent:#a7d5be; }
-      *,*::before,*::after { box-sizing:border-box; }
-      html { scroll-behavior:smooth; }
-      body { margin:0; background:var(--bg); color:var(--fg); font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
-      a { color:inherit; text-decoration:none; }
-      button { font:inherit; }
-      a:focus-visible,button:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
-      ::selection { background:#a7d5be; color:#0a100d; }
-      .yf-wrap { width:min(100% - 88px,1500px); margin:0 auto; }
-      .yf-hairline { height:1px; background:var(--line); }
-      .yf-kicker { font-size:10px; letter-spacing:.21em; font-weight:600; color:var(--muted); text-transform:uppercase; }
-      .yf-header { position:relative; z-index:10; border-bottom:1px solid var(--line); }
-      .yf-header-inner { min-height:82px; display:flex; align-items:center; justify-content:space-between; gap:32px; }
-      .yf-brand { display:flex; gap:24px; align-items:baseline; font-weight:730; letter-spacing:.16em; font-size:20px; }
-      .yf-brand span { font-size:10px; font-weight:500; letter-spacing:.2em; color:var(--muted); }
-      .yf-nav { display:flex; gap:clamp(18px,3.2vw,54px); align-items:center; }
-      .yf-nav a { color:#aab4ae; font-size:11px; letter-spacing:.14em; text-transform:uppercase; transition:color .2s ease; }
-      .yf-nav a:hover { color:#fff; }
-      .yf-hero { isolation:isolate; position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
-      .yf-hero::before { content:""; position:absolute; z-index:-2; inset:0; opacity:.5; background:linear-gradient(rgba(187,230,202,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(187,230,202,.025) 1px,transparent 1px); background-size:88px 88px; mask-image:linear-gradient(110deg,transparent 8%,#000 90%); }
-      .yf-hero-inner { position:relative; min-height:min(850px,calc(100svh - 82px)); display:flex; flex-direction:column; }
-      .yf-hero-top { padding:29px 0; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-      .yf-hero-stage { min-height:560px; display:grid; grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr); flex:1; align-items:center; gap:2vw; }
-      .yf-intro { position:relative; z-index:3; padding:40px 0 65px; }
-      .yf-intro .yf-kicker { color:var(--accent); }
-      .yf-title { margin:17px 0 23px; font-size:clamp(108px,17.3vw,280px); font-weight:550; letter-spacing:-.115em; line-height:.87; transform:translateX(-.035em); }
-      .yf-deck { font-size:clamp(24px,3.1vw,50px); line-height:1.15; font-weight:380; letter-spacing:-.055em; max-width:730px; margin:0 0 26px; }
-      .yf-deck em { font-family:Georgia,serif; font-weight:400; color:var(--accent); }
-      .yf-copy { max-width:540px; color:var(--soft); font-size:clamp(14px,1.16vw,17px); line-height:1.8; margin:0; }
-      .yf-actions { display:flex; gap:34px; align-items:center; margin-top:42px; flex-wrap:wrap; }
-      .yf-text-link { display:inline-flex; align-items:center; padding-bottom:11px; border-bottom:1px solid rgba(204,233,214,.44); font-size:11px; font-weight:650; letter-spacing:.13em; text-transform:uppercase; transition:color .2s,border-color .2s; }
-      .yf-text-link:hover { color:var(--accent); border-color:var(--accent); }
-      .yf-text-link.secondary { color:var(--muted); border-color:rgba(218,233,222,.15); }
-      .yf-orbit { position:relative; width:min(46vw,690px); aspect-ratio:1; justify-self:end; margin-right:-16%; opacity:.82; pointer-events:none; }
-      .yf-orbit::before { content:""; position:absolute; inset:10%; border-radius:50%; background:radial-gradient(circle,rgba(92,141,113,.13),transparent 64%); filter:blur(20px); }
-      .yf-orbit-ring { position:absolute; border:1px solid rgba(180,223,199,.18); border-radius:50%; inset:8%; transform:rotate(-28deg) scaleY(.63); animation:yf-spin 38s linear infinite; }
-      .yf-orbit-ring:nth-child(2) { inset:17%; border-color:rgba(180,223,199,.24); transform:rotate(47deg) scaleY(.82); animation:yf-counter 31s linear infinite; }
-      .yf-orbit-ring:nth-child(3) { inset:26%; border-style:dashed; border-color:rgba(180,223,199,.18); transform:rotate(25deg); animation:yf-spin 53s linear infinite; }
-      .yf-orbit-core { position:absolute; inset:39%; border:1px solid rgba(169,235,191,.42); border-radius:50%; display:grid; place-items:center; font:400 clamp(23px,4vw,55px) Georgia,serif; color:#d4f0e0; background:radial-gradient(circle,#20372e,#0d1311 78%); box-shadow:0 0 85px rgba(74,166,115,.13); }
-      .yf-orbit-mark { position:absolute; font-size:10px; letter-spacing:.16em; font-weight:600; color:rgba(169,222,188,.46); }
-      .yf-orbit-mark.one { left:0; top:48%; } .yf-orbit-mark.two { right:9%; bottom:14%; }
-      .yf-hero-bottom { padding:27px 0 33px; display:flex; justify-content:space-between; gap:20px; border-top:1px solid var(--line); }
-      .yf-section { padding:clamp(95px,11vw,174px) 0; border-bottom:1px solid var(--line); scroll-margin-top:20px; }
-      .yf-section-heading { display:grid; grid-template-columns:minmax(200px,.42fr) 1fr; gap:50px; align-items:start; margin-bottom:72px; }
-      .yf-section-heading h2 { margin:0; font-size:clamp(43px,6vw,98px); font-weight:420; line-height:1; letter-spacing:-.078em; }
-      .yf-section-heading h2 em { font-family:Georgia,serif; color:var(--accent); font-weight:400; }
-      .yf-section-note { margin:18px 0 0; color:var(--soft); max-width:490px; font-size:15px; line-height:1.8; }
-      .yf-work-row { display:grid; grid-template-columns:65px minmax(0,1.3fr) minmax(200px,.75fr) 120px; align-items:center; gap:clamp(20px,3vw,50px); padding:46px 10px 46px 0; border-top:1px solid var(--line); transition:background .26s,padding-left .26s; }
-      .yf-work-row:last-child { border-bottom:1px solid var(--line); }
-      .yf-work-row:hover { background:linear-gradient(90deg,rgba(159,217,183,.045),transparent 75%); padding-left:12px; }
-      .yf-work-id { color:var(--accent); font-size:12px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
-      .yf-work-title { margin:0; font-size:clamp(33px,4.6vw,68px); font-weight:450; letter-spacing:-.07em; line-height:1.05; }
-      .yf-work-desc { color:#a0aca5; font-size:14px; line-height:1.7; max-width:310px; }
-      .yf-work-kind { text-align:right; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.18em; }
-      .yf-work-row:hover .yf-work-title { color:#c6efd8; }
-      .yf-lab-top { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-bottom:58px; }
-      .yf-lab-top h2 { font-size:clamp(44px,6vw,92px); letter-spacing:-.075em; font-weight:430; margin:19px 0 0; }
-      .yf-lab-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-      .yf-lab-item { padding:40px clamp(22px,3vw,54px) 56px 0; min-height:260px; }
-      .yf-lab-item + .yf-lab-item { border-left:1px solid var(--line); padding-left:clamp(22px,3vw,54px); }
-      .yf-lab-item .yf-kicker { color:var(--accent); }
-      .yf-lab-item h3 { font-size:clamp(23px,2.7vw,42px); letter-spacing:-.06em; font-weight:440; margin:40px 0 16px; line-height:1.2; }
-      .yf-lab-item p { color:var(--soft); margin:0; font-size:14px; line-height:1.8; max-width:370px; }
-      .yf-about { display:grid; grid-template-columns:1fr 1fr; gap:11%; align-items:start; }
-      .yf-about h2 { font-weight:420; letter-spacing:-.074em; font-size:clamp(50px,6vw,96px); line-height:1.02; margin:24px 0 0; }
-      .yf-about h2 em { color:var(--accent); font-family:Georgia,serif; font-weight:400; }
-      .yf-about-text { padding-top:40px; }
-      .yf-about-text p { font-size:clamp(17px,1.7vw,25px); line-height:1.6; letter-spacing:-.025em; font-weight:360; margin:0 0 25px; color:#b4c0b7; }
-      .yf-about-text p:first-child { color:#e1e8e3; }
-      .yf-about-text .yf-text-link { margin-top:15px; }
-      .yf-footer { padding:58px 0 45px; }
-      .yf-footer-main { display:flex; justify-content:space-between; align-items:start; gap:25px; }
-      .yf-footer-mark { font-size:clamp(32px,5vw,72px); letter-spacing:-.09em; font-weight:520; line-height:.95; }
-      .yf-footer-links { display:flex; gap:26px; align-items:center; flex-wrap:wrap; }
-      .yf-footer-links a { text-transform:uppercase; font-size:11px; font-weight:650; letter-spacing:.15em; color:var(--soft); }
-      .yf-footer-links a:hover { color:var(--accent); }
-      .yf-footer-bottom { margin-top:85px; padding-top:22px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:22px; }
-      @keyframes yf-spin { from {transform:rotate(-28deg) scaleY(.63)} to {transform:rotate(332deg) scaleY(.63)} }
-      @keyframes yf-counter { from {transform:rotate(47deg) scaleY(.82)} to {transform:rotate(-313deg) scaleY(.82)} }
-      @media (max-width:1100px) {
-        .yf-wrap { width:min(100% - 64px,1500px); }
-        .yf-hero-stage { grid-template-columns:1.2fr .8fr; }
-        .yf-title { font-size:clamp(95px,16.5vw,180px); }
-        .yf-orbit { margin-right:-24%; }
-        .yf-work-row { grid-template-columns:50px minmax(0,1fr) minmax(165px,.75fr); }
-        .yf-work-kind { display:none; }
+      h1 {
+        font-size: 4em;
+        margin-top: 100px;
+        letter-spacing: 5px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
       }
-      @media (max-width:760px) {
-        .yf-wrap { width:calc(100% - 38px); }
-        .yf-header-inner { min-height:68px; }
-        .yf-brand { font-size:19px; } .yf-brand span { display:none; }
-        .yf-nav { gap:18px; } .yf-nav a { font-size:10px; letter-spacing:.09em; } .yf-nav a:last-child { display:none; }
-        .yf-hero-inner { min-height:690px; }
-        .yf-hero-top { padding:25px 0; } .yf-hero-top span:last-child { display:none; }
-        .yf-hero-stage { display:block; min-height:560px; position:relative; }
-        .yf-intro { padding:95px 0 80px; }
-        .yf-title { font-size:clamp(89px,20.6vw,170px); margin:25px 0 25px; }
-        .yf-deck { font-size:clamp(26px,5vw,38px); max-width:560px; }
-        .yf-copy { max-width:480px; font-size:14px; }
-        .yf-orbit { position:absolute; z-index:-1; width:75vw; right:-35vw; top:10px; margin:0; opacity:.28; }
-        .yf-hero-bottom { padding:25px 0; }
-        .yf-section-heading { grid-template-columns:1fr; gap:25px; margin-bottom:50px; }
-        .yf-work-row { grid-template-columns:42px 1fr; align-items:start; gap:15px 20px; padding:35px 0; }
-        .yf-work-title { font-size:clamp(33px,7.3vw,59px); }
-        .yf-work-desc { grid-column:2; margin:0; max-width:500px; }
-        .yf-lab-grid { grid-template-columns:1fr; }
-        .yf-lab-item,.yf-lab-item + .yf-lab-item { min-height:auto; padding:30px 0 38px; border-left:0; }
-        .yf-lab-item + .yf-lab-item { border-top:1px solid var(--line); }
-        .yf-lab-item h3 { margin:20px 0 10px; }
-        .yf-about { grid-template-columns:1fr; gap:16px; }
-        .yf-about-text { padding-top:15px; }
-        .yf-footer-bottom { margin-top:70px; }
+
+      p {
+        font-size: 1.5em;
+        margin-top: 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
       }
-      @media (max-width:440px) {
-        .yf-nav a:nth-child(2) { display:none; }
-        .yf-title { font-size:clamp(78px,20.6vw,102px); }
-        .yf-hero-inner { min-height:650px; }
-        .yf-intro { padding-top:85px; }
-        .yf-actions { gap:24px; }
-        .yf-footer-main { display:block; }
-        .yf-footer-links { margin-top:30px; }
-        .yf-footer-bottom { flex-direction:column; }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
       }
-      @media (prefers-reduced-motion:reduce) {
-        html { scroll-behavior:auto; }
-        .yf-orbit-ring { animation:none; }
-        .yf-work-row,.yf-text-link { transition:none; }
+
+      .logo {
+        height: 100px; /* adjust the height to your desired size */
+        width: auto;
+      }
+
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: .5em;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      .footer p {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+      }
+
+      .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 20px;
+        background-color: #fff;
+        color: #000;
+        border-radius: 5px;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      /* QUINN portfolio entry */
+      .hero-center {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .quinn-entry {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 22px;
+        color: #e4f9ef;
+        border: 1px solid rgba(137, 219, 179, .28);
+        border-radius: 999px;
+        background: rgba(50, 125, 91, .08);
+        font-size: .75rem;
+        font-weight: 500;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        text-shadow: none;
+        text-decoration: none;
+        transition: border-color .25s ease, background .25s ease, transform .25s ease;
+      }
+
+      .quinn-entry:hover, .quinn-entry:focus-visible {
+        color: #fff;
+        background: rgba(50, 125, 91, .18);
+        border-color: rgba(156, 252, 202, .58);
+        transform: translateY(-2px);
+      }
+
+      .quinn-entry small {
+        color: rgba(183, 234, 204, .64);
+        font-size: .65rem;
+        letter-spacing: .14em;
+      }
+
+      @media (max-width: 480px) {
+        .quinn-entry { padding: 12px 15px; gap: 10px; font-size: .7rem; }
+        .quinn-entry small { font-size: .6rem; }
       }
 
       .operator-glyph {
@@ -263,112 +250,28 @@
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         font-size: .66rem !important;
       }
-
-  </style>
-</head>
-<body>
-
-  <header class="yf-header">
-    <div class="yf-wrap yf-header-inner">
-      <a class="yf-brand" href="/" aria-label="YNG3 home">YNG3 <span>INDEPENDENT DIGITAL LABORATORY</span></a>
-      <nav class="yf-nav" aria-label="Primary navigation">
-        <a href="#work">Selected work</a>
-        <a href="#laboratory">Laboratory</a>
-        <a href="#about">About</a>
-        <a href="#contact">Connect</a>
-      </nav>
+    </style>
+  </head>
+  <body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="center hero-center">
+      <a href="https://yng3.github.io/"><h1 class="animate__animated animate__fadeInDown">YNG3</h1></a>
+      <a class="quinn-entry animate__animated animate__fadeInUp" href="/quinn/" aria-label="Explore QUINN project">
+        <span>QUINN</span>
+        <small>Explore project</small>
+      </a>
     </div>
-  </header>
-  <main id="top">
-    <section class="yf-hero" aria-labelledby="hero-title">
-      <div class="yf-wrap yf-hero-inner">
-        <div class="yf-hero-top yf-kicker"><span>YNG3 / DIGITAL EXPERIMENTS</span><span>DESIGN. COMPUTATION. EXPLORATION.</span></div>
-        <div class="yf-hero-stage">
-          <div class="yf-intro">
-            <span class="yf-kicker">INDEPENDENT BY DESIGN</span>
-            <h1 class="yf-title" id="hero-title">YNG3</h1>
-            <h2 class="yf-deck">Building systems.<br>Exploring <em>other worlds.</em></h2>
-            <p class="yf-copy">An evolving collection of experiments across technology, intelligent systems, and digital environments. Some are tools. Some are worlds. All begin with a question.</p>
-            <div class="yf-actions">
-              <a class="yf-text-link" href="#work">Explore selected work</a>
-              <a class="yf-text-link secondary" href="/quinn/">Enter QUINN</a>
-            </div>
-          </div>
-          <div class="yf-orbit" aria-hidden="true">
-            <div class="yf-orbit-ring"></div><div class="yf-orbit-ring"></div><div class="yf-orbit-ring"></div>
-            <div class="yf-orbit-core">Y3</div>
-            <span class="yf-orbit-mark one">YNG3 / 001</span><span class="yf-orbit-mark two">NO FIXED COORDINATES</span>
-          </div>
-        </div>
-        <div class="yf-hero-bottom yf-kicker"><span>SCROLL TO EXPLORE</span><span>ESTABLISHED IN CURIOSITY</span></div>
-      </div>
-    </section>
-    <section class="yf-section" id="work" aria-labelledby="work-heading">
-      <div class="yf-wrap">
-        <div class="yf-section-heading">
-          <span class="yf-kicker">01 / INDEX</span>
-          <div>
-            <h2 id="work-heading">Selected <em>work.</em></h2>
-            <p class="yf-section-note">Independent projects, interactive worlds, and systems built to explore what comes next.</p>
-          </div>
-        </div>
-        <div class="yf-work-list">
-          <a class="yf-work-row" href="/quinn/" aria-label="Explore QUINN">
-            <span class="yf-work-id">01</span><h3 class="yf-work-title">QUINN</h3>
-            <span class="yf-work-desc">Persistent identity and governed computation, designed for continuity beyond a single machine.</span>
-            <span class="yf-work-kind">SYSTEMS / AI</span>
-          </a>
-          <a class="yf-work-row" href="pixel.html" aria-label="Explore Pixel Dimension">
-            <span class="yf-work-id">02</span><h3 class="yf-work-title">Pixel Dimension</h3>
-            <span class="yf-work-desc">An interactive environment of generative motion, patterns, and visual experimentation.</span>
-            <span class="yf-work-kind">INTERACTIVE / ART</span>
-          </a>
-          <a class="yf-work-row" href="/no-credentials-needed/" aria-label="Explore The Universe">
-            <span class="yf-work-id">03</span><h3 class="yf-work-title">The Universe</h3>
-            <span class="yf-work-desc">A doorway into an experimental digital realm.</span>
-            <span class="yf-work-kind">EXPLORATION / WEB</span>
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="yf-section" id="laboratory" aria-labelledby="lab-heading">
-      <div class="yf-wrap">
-        <div class="yf-lab-top">
-          <div><span class="yf-kicker">02 / AREAS OF EXPLORATION</span><h2 id="lab-heading">The laboratory.</h2></div>
-          <span class="yf-kicker">IDEAS IN MOTION</span>
-        </div>
-        <div class="yf-lab-grid">
-          <article class="yf-lab-item"><span class="yf-kicker">FIELD / 01</span><h3>Intelligent systems</h3><p>Investigating durable identities, bounded autonomy, and systems that remain understandable under pressure.</p></article>
-          <article class="yf-lab-item"><span class="yf-kicker">FIELD / 02</span><h3>Digital worlds</h3><p>Experimenting with generative visuals and interfaces that invite exploration rather than just consumption.</p></article>
-          <article class="yf-lab-item"><span class="yf-kicker">FIELD / 03</span><h3>Open questions</h3><p>A place for prototypes, unfinished ideas, and unexpected intersections of design and computation.</p></article>
-        </div>
-      </div>
-    </section>
-    <section class="yf-section" id="about" aria-labelledby="about-heading">
-      <div class="yf-wrap yf-about">
-        <div><span class="yf-kicker">03 / ABOUT THE PROJECT</span><h2 id="about-heading">Made for the <em>unusual.</em></h2></div>
-        <div class="yf-about-text">
-          <p>YNG3 is an independent creative and technical space for exploring ideas outside conventional boundaries.</p>
-          <p>Software, emerging technology, experimental interfaces, and digital environments meet here. The goal isn't to fit everything into one category. It's to keep building.</p>
-          <a class="yf-text-link" href="https://github.com/yng3" target="_blank" rel="noopener noreferrer">Explore the code</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="yf-footer" id="contact">
-    <div class="yf-wrap">
-      <div class="yf-footer-main">
-        <span class="yf-footer-mark">YNG3</span>
-        <nav class="yf-footer-links" aria-label="External links">
-          <a href="https://github.com/yng3" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.youtube.com/@ynotloc" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <a href="/quinn/">QUINN</a>
-          <a href="#top">Back to top</a>
-        </nav>
-      </div>
-      <div class="yf-footer-bottom yf-kicker"><span>&copy; 2026 YNG3</span><span>INDEPENDENT WORK / OPEN ENDED</span></div>
+    <p class="animate__animated animate__fadeInUp">you have stumbled upon the realm of mystery and wonder. follow me into <a href="https://yng3.github.io/no-credentials-needed">the universe</a> and uncover the secrets of my creations.</p>
+
+    <div class="center">
+            <a href="pixel.html" class="button">Enter the Pixel Dimension</a>
     </div>
-  </footer>
+    
+    <div class="footer">
+      <p>&copy; 2025 YNG3</p>
+      <p><a href="https://youtube.com/@ynotloc?si=pqxuKUOhRbvVTWKb">YouTube</a></p>
+      <p>visit my <a href="https://github.com/YNG3">github</a> for all the latest hax</p>
+    </div>
 
     <button class="operator-glyph" id="operatorGlyph" aria-label="operator access" title="operator access"></button>
     <section class="operator-panel" id="operatorPanel" aria-live="polite">
@@ -381,7 +284,6 @@
       </div>
       <p class="operator-note" id="operatorNote">awaiting signal</p>
     </section>
-
 
     <script>
       (function () {
@@ -442,5 +344,5 @@
         }
       }());
     </script>
-</body>
+  </body>
 </html>
