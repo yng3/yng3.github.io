@@ -59,7 +59,6 @@
       appendTag(category, 'b', '', entry.label);
       appendTag(category, 'span', '', entry.date);
       article.append(category);
-      appendTag(article, 'span', 'archive-chevron', '↗').setAttribute('aria-hidden', 'true');
       archive.append(article);
     }
   }
