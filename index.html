@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="YNG3 is a curated window into independent experiments in identity, intelligent systems, and digital technology.">
     <title>YNG3</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
@@ -127,6 +131,144 @@
         .quinn-entry small { font-size: .6rem; }
       }
 
+
+      /* Curated public signals — original YNG3 structure remains intact */
+      .curation {
+        max-width: 850px;
+        margin: 108px auto 0;
+        padding: 0 28px;
+        text-align: left;
+        color: #f0f3f1;
+      }
+      .curation-heading, .signal-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 22px;
+        align-items: baseline;
+        margin-bottom: 19px;
+        color: #929a94;
+        font: 500 10px/1.6 "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: .21em;
+        text-transform: uppercase;
+      }
+      .curation-heading span:last-child { color: #69716c; }
+      .project-reveal { border-top: 1px solid rgba(226,242,232,.2); border-bottom: 1px solid rgba(226,242,232,.2); }
+      .project-reveal summary {
+        display: grid;
+        grid-template-columns: 44px minmax(0,1fr) minmax(125px,.7fr) 60px;
+        align-items: center;
+        gap: 18px;
+        min-height: 102px;
+        cursor: pointer;
+        list-style: none;
+        transition: background .2s ease, padding .2s ease;
+      }
+      .project-reveal summary::-webkit-details-marker,
+      .signal-details summary::-webkit-details-marker { display: none; }
+      .project-reveal summary::marker,
+      .signal-details summary::marker { content: ""; }
+      .project-reveal summary:hover { background: rgba(181,213,190,.025); padding-left: 8px; }
+      .project-id { color: #9dbca6; font: 500 12px/1.5 monospace; }
+      .project-title { font-size: clamp(24px,3.2vw,37px); font-weight: 450; letter-spacing: .09em; }
+      .project-type { font: 500 10px/1.5 "Helvetica Neue", Arial, sans-serif; color: #919d96; letter-spacing: .13em; text-transform: uppercase; }
+      .project-toggle { font: 500 10px/1.4 "Helvetica Neue", Arial, sans-serif; color: #b7c5b9; letter-spacing: .15em; text-transform: uppercase; text-align: right; }
+      .project-reveal[open] .project-toggle { color: #d8eadd; }
+      .project-reveal[open] .project-toggle::after { content: " /"; }
+      .project-description { max-width: 600px; padding: 0 0 36px 62px; }
+      .project-description p, .signal-details p {
+        color: #aebcb1;
+        text-shadow: none;
+        font-size: 14px;
+        line-height: 1.85;
+        max-width: 690px;
+        margin: 0 0 20px;
+        text-align: left;
+      }
+      .project-description a {
+        display: inline-block;
+        color: #d9eadf;
+        border-bottom: 1px solid rgba(192,225,204,.47);
+        padding-bottom: 7px;
+        font: 600 11px/1.5 "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+      }
+      .project-description a:hover { border-color: #e4ffec; }
+      .transmission {
+        margin-top: 74px;
+        padding: 25px 0 26px;
+        border-top: 1px solid rgba(226,242,232,.2);
+        border-bottom: 1px solid rgba(226,242,232,.14);
+      }
+      .signal-meta { margin-bottom: 23px; }
+      .signal-meta span:last-child { color: #95b9a3; }
+      .transmission h2 {
+        font-size: clamp(24px,3.2vw,38px);
+        font-weight: 430;
+        letter-spacing: -.04em;
+        line-height: 1.25;
+        margin: 0 0 12px;
+      }
+      .transmission .signal-summary {
+        color: #a3ada6;
+        text-shadow: none;
+        font-size: 14px;
+        line-height: 1.75;
+        margin: 0 0 18px;
+        max-width: 690px;
+        text-align: left;
+      }
+      .signal-details summary {
+        display: inline-flex;
+        padding: 7px 0;
+        list-style: none;
+        cursor: pointer;
+        color: #c1d1c4;
+        border-bottom: 1px solid rgba(192,225,204,.32);
+        font: 600 10px/1.5 "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+      .signal-details summary:hover { color: #fff; border-color: #fff; }
+      .signal-details[open] summary { margin-bottom: 21px; }
+      .signal-details p:last-child { margin-bottom: 4px; }
+      .curation-end {
+        margin-top: 32px;
+        color: #666e68;
+        text-shadow: none;
+        font: 500 10px/1.65 "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        text-align: left;
+      }
+      .footer {
+        position: static;
+        width: 100%;
+        margin-top: 115px;
+        border-top: 1px solid rgba(220,231,223,.11);
+        background: transparent;
+        padding: 24px 12px 30px;
+        font-size: .58em;
+      }
+      .footer p { line-height: 1.45; }
+      @media(max-width:600px) {
+        .center { height: 65vh; min-height: 350px; }
+        h1 { margin-top: 35px; font-size: clamp(3rem,15vw,4em); }
+        .logo { height: 80px; }
+        body > p { padding: 0 22px; font-size: 1.1em; line-height: 1.7; }
+        .curation { margin-top: 85px; padding: 0 22px; }
+        .project-reveal summary { grid-template-columns: 32px 1fr 56px; gap: 10px; min-height: 93px; }
+        .project-type { grid-column: 2; grid-row: 2; margin-top: -25px; font-size: 9px; }
+        .project-toggle { grid-column: 3; grid-row: 1; }
+        .project-description { padding-left: 0; }
+        .curation-heading, .signal-meta { font-size: 9px; letter-spacing: .14em; }
+        .transmission { margin-top: 60px; }
+        .footer { margin-top: 80px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .project-reveal summary { transition: none; }
+      }
     </style>
   </head>
   <body>
@@ -140,7 +282,40 @@
     </div>
     <p class="animate__animated animate__fadeInUp">you have stumbled upon the realm of mystery and wonder. a quiet window into the systems, experiments, and discoveries currently taking shape.</p>
 
-    
+
+    <section class="curation" aria-label="Selected work and transmissions">
+      <div class="curation-heading">
+        <span>Selected work / 001</span>
+        <span>Currently in development</span>
+      </div>
+      <details class="project-reveal">
+        <summary aria-label="Expand QUINN project preview">
+          <span class="project-id">01</span>
+          <strong class="project-title">QUINN</strong>
+          <span class="project-type">Identity / Computation</span>
+          <span class="project-toggle">View</span>
+        </summary>
+        <div class="project-description">
+          <p>An exploration of persistent cryptographic identity, governed execution, and continuity beyond a single machine. Built deliberately, with authority constrained at every boundary.</p>
+          <a href="/quinn/">Explore QUINN</a>
+        </div>
+      </details>
+      <article class="transmission" aria-labelledby="transmission-title">
+        <div class="signal-meta">
+          <span>Transmission / 001</span>
+          <span>Local proof / QUINN</span>
+        </div>
+        <h2 id="transmission-title">A signed record of work.</h2>
+        <p class="signal-summary">An experimental worker produced a cryptographically signed result receipt, linked to its request and a pinned signing key.</p>
+        <details class="signal-details">
+          <summary>Read transmission</summary>
+          <p>The local candidate demonstrated signed result receipts alongside consent checks and budget settlement. Its reported test suite passed 727 tests, including wrong-key rejection, retry consistency, and transactional rollback.</p>
+          <p>A signed receipt establishes that the relevant signing key was used. It does not by itself prove physical machine identity or remote execution. An authorized host and authenticated transport remain separate requirements before online deployment.</p>
+        </details>
+      </article>
+      <p class="curation-end">A selective record of what is being built. No live runtime connection.</p>
+    </section>
+
     <div class="footer">
       <p>&copy; 2026 YNG3</p>
       <p><a href="https://youtube.com/@ynotloc?si=pqxuKUOhRbvVTWKb">YouTube</a></p>
