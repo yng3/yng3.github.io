@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090e16">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="QUINN's public research record. Inspect a reproducible synthetic physics benchmark, verify its data in your browser, and understand what the evidence does—and does not—establish.">
+  <meta property="og:title" content="QUINN — Research Record">
+  <meta property="og:description" content="Evidence before claims. A reproducible demonstration—not a live feed or an externally verified discovery.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Research Record — QUINN</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#research-main">Skip to research</a>
+  <div class="page-rule" aria-hidden="true"></div>
+  <header class="site-head" id="top">
+    <a class="brand" href="../" aria-label="Return to QUINN homepage"><span class="brand-symbol" aria-hidden="true">Q<span>.</span></span><span>QUINN</span></a>
+    <nav aria-label="Research navigation"><a href="#instrument">INSTRUMENT</a><a href="#protocol">METHOD</a><a href="#ledger">RECORD</a></nav>
+    <a class="return-link" href="../">RETURN TO QUINN <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="research-main">
+    <section class="intro grain" aria-labelledby="page-title">
+      <div class="intro-number mono">PUBLIC RESEARCH / 001 <span>2026 — HUMAN-CURATED</span></div>
+      <div class="intro-grid">
+        <div class="intro-copy">
+          <p class="eyebrow"><i aria-hidden="true"></i> THE SCIENTIFIC RECORD</p>
+          <h1 id="page-title">NOT AN<br><em>ASSERTION.</em><br><span>AN EXAMINATION.</span></h1>
+          <p class="lede">A public window into what can be inspected, reproduced, and challenged. No secret system, private agent, or live telemetry sits behind this screen.</p>
+          <div class="intro-actions"><a class="primary-link" href="#instrument">EXAMINE THE EVIDENCE <span aria-hidden="true">↗</span></a><a class="secondary-link" href="#protocol">READ THE METHOD <span aria-hidden="true">↓</span></a></div>
+        </div>
+        <div class="orbital" aria-hidden="true"><div class="orbit-disc orbit-disc-a"></div><div class="orbit-disc orbit-disc-b"></div><div class="orbit-disc orbit-disc-c"></div><div class="orbit-center">∴</div><span class="orbit-caption mono">FIG 001 / INQUIRY FIELD</span></div>
+      </div>
+      <div class="intro-footer mono"><span>CLAIM / EVIDENCE / LIMITATION</span><span>SCROLL TO EXAMINE ↓</span></div>
+    </section>
+    <section class="status-strip" aria-label="Research record status">
+      <div><span class="status-count">01</span><span>REPRODUCIBLE<br>SYNTHETIC BENCHMARK</span></div>
+      <div><span class="status-count">01</span><span>SELF-CONSISTENT<br>CRYPTOGRAPHIC TEST VECTOR</span></div>
+      <div><span class="status-count status-count-muted">00</span><span>EXTERNALLY VALIDATED<br>QUINN SCIENTIFIC RESULTS</span></div>
+      <p>These are distinct evidence categories. Reproducing an illustrative simulation does not establish discovery by QUINN or independent validation of the private runtime.</p>
+    </section>
+    <section class="instrument" id="instrument" aria-labelledby="instrument-title">
+      <div class="section-meta mono"><span>01 / REPRODUCE</span><span>ARTIFACT: SYNTHETIC-OSCILLATOR-001</span></div>
+      <div class="instrument-head"><h2 id="instrument-title">TRUST THE<br><em>test,</em> NOT<br>THE LABEL.</h2><div><p>The following oscillator was generated for this public demonstration. A fixed approximate candidate is compared against a synthetic reference and an independently derived closed-form solution.</p><p class="quiet">Not QUINN runtime output. Not real-world measurements. Not an external scientific review.</p></div></div>
+      <div class="lab-grid">
+        <div class="lab-main">
+          <div class="chart-head mono"><span>FIG. 002 / NUMERICAL REPRODUCTION</span><span id="chart-mode">UNVERIFIED / LOADING</span></div>
+          <div class="chart-frame"><canvas id="chart" role="img" aria-label="Damped oscillator positions across twelve seconds. Synthetic reference, analytical solution and illustrative approximate candidate. Numeric readouts appear below.">A chart of the oscillator trajectories.</canvas><div class="chart-fade" aria-hidden="true"></div></div>
+          <div class="chart-legend mono"><span><i class="dot dot-reference"></i> SYNTHETIC REFERENCE</span><span><i class="dot dot-candidate"></i> APPROXIMATE CANDIDATE</span><span><i class="dot dot-exact"></i> ANALYTIC SOLUTION</span></div>
+          <div class="timeline"><label class="mono" for="timeline">INSPECT TIMESTEP <output id="time-readout" for="timeline">0.00 S</output></label><input id="timeline" type="range" min="0" max="400" step="1" value="200" disabled></div>
+          <div class="metrics"><div><span class="mono">REFERENCE</span><strong id="metric-reference">—</strong><small>METRES</small></div><div><span class="mono">CANDIDATE</span><strong id="metric-candidate">—</strong><small>METRES</small></div><div><span class="mono">RESIDUAL</span><strong id="metric-residual">—</strong><small>METRES</small></div></div>
+        </div>
+        <aside class="lab-aside" aria-label="Reproduction controls and findings">
+          <div class="aside-head mono"><span>QNN / EVIDENCE ENGINE</span><span>LOCAL ONLY</span></div>
+          <div class="classification">REPRODUCIBLE DEMONSTRATION <span>NOT EXTERNALLY VALIDATED</span></div>
+          <h3>Test the evidence.</h3><p>All checks run in your browser, against a static public JSON record. You can deliberately corrupt a copy of one sample to see which checks reject it.</p>
+          <div class="checks" id="checks" role="status" aria-live="polite"><div class="check loading">Loading public artifact…</div></div>
+          <div class="lab-actions"><button id="run-checks" type="button" disabled>RUN LOCAL CHECKS <span>↻</span></button><button id="tamper" type="button" disabled>ALTER A SAMPLE <span>↗</span></button><button id="restore" type="button" disabled>RESTORE DATA <span>↺</span></button></div>
+          <div class="readout-result"><span class="mono">FULL WINDOW / CANDIDATE RMSE</span><strong id="rmse">—</strong><p id="verdict" aria-live="polite">Waiting for a public research artifact.</p></div>
+        </aside>
+      </div>
+      <div class="instrument-bottom"><div><span class="mono">INTEGRITY DIGEST / SHA-256</span><code id="checksum" title="Checksum of original raw JSON bytes">—</code><p>A checksum catches changes relative to the catalog; because both files come from this website, it is <strong>not an external trust anchor or signature.</strong></p></div><div class="record-actions"><a href="./data/synthetic-oscillator-001.json" download>DOWNLOAD DATA ↧</a><a href="./reproduce.py" download>DOWNLOAD PYTHON VERIFIER ↧</a></div></div>
+    </section>
+    <section class="protocol" id="protocol" aria-labelledby="protocol-title"><div class="section-meta mono"><span>02 / METHOD</span><span>FOUR CHECKS / CLEAR BOUNDARIES</span></div><h2 id="protocol-title">FROM CLAIM<br>TO <em>CONSTRAINT.</em></h2><div class="protocol-grid"><article><span class="mono">01 / PROVENANCE</span><h3>Say where it came from.</h3><p>The data are explicitly labeled synthetic and generated by a public reference implementation. Their existence is not evidence of any private agent running.</p></article><article><span class="mono">02 / INTEGRITY</span><h3>Pin the bytes.</h3><p>SHA-256 detects alteration relative to a published manifest. It does not authenticate the author or prove the recorded experiment occurred.</p></article><article><span class="mono">03 / RECOMPUTE</span><h3>Rebuild the result.</h3><p>Browser-side RK4 recalculation checks every stored sample. The reference trajectory is also compared with the separate analytical equation of motion.</p></article><article><span class="mono">04 / REPLICATE</span><h3>Prove it elsewhere.</h3><p>External replication needs independent evidence, provenance, disclosed methods and review. No QUINN result is currently represented as meeting that higher bar.</p></article></div><div class="method-note">The verifier proves mathematical self-consistency of an educational example under stated assumptions. It does not prove causal discovery, generalization to real observations, or performance of QUINN's operating system.</div></section>
+    <section class="ledger" id="ledger" aria-labelledby="ledger-title"><div class="section-meta mono"><span>03 / PUBLIC EVIDENCE LEDGER</span><span>CURATED / STATIC / NO LIVE FEED</span></div><div class="ledger-heading"><h2 id="ledger-title">THE<br><em>record.</em></h2><p>Public artifacts may be inspected, reproduced, and challenged. Evidence levels are stated explicitly rather than implied by presentation.</p></div><div class="ledger-row"><span class="mono">001</span><div><h3>Synthetic oscillator / baseline</h3><p>401 deterministic samples · numerical/analytical comparison · local integrity checks</p></div><span class="record-kind">SYNTHETIC / REPRODUCIBLE</span><a href="#instrument">INSPECT ↗</a></div><div class="ledger-row"><span class="mono">002</span><div><h3>Signed fixture / disposable keys</h3><p>Ed25519 self-consistency and tamper rejection · externally trusted identity not established</p></div><span class="record-kind">SYNTHETIC / CRYPTOGRAPHIC</span><a href="../proof/">PROOF LAB ↗</a></div><div class="ledger-empty"><div class="empty-symbol" aria-hidden="true">∅</div><div><h3>Independent QUINN research replication</h3><p>No externally verified QUINN scientific findings have been published in this record. A future finding requires a reviewed evidence bundle, reproducibility instructions, limitations, and independent corroboration before appearing here.</p></div><span class="record-kind">AWAITING EVIDENCE</span></div></section>
+  </main>
+  <footer class="site-footer"><div class="footer-brand">QUINN<span>.</span></div><div>PUBLIC RESEARCH / NO RUNTIME ACCESS<br>NO SECRETS · NO AGENT CONTROL · NO ANALYTICS</div><div><a href="../">RETURN TO QUINN ↗</a><a href="../proof/">PROOF LAB ↗</a></div><span>© 2026 QUINN</span></footer>
+  <noscript><p class="no-js">JavaScript is needed for the browser-based checks and chart. The static methodology, public dataset and standalone Python verifier remain accessible without it.</p></noscript>
+</body>
+</html>

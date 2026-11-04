@@ -1,25 +1,20 @@
-# QUINN — Cinematic Public Exhibition
+# QUINN — Public cinematic exhibition and research record
 
-This directory is a static, untrusted public presentation layer. It is **not** QUINN's operating interface and has no access to private identity material, agent tools, hosts, accounts, receipts, or runtime status.
+This is a **public, static, untrusted presentation layer**, not the private QUINN runtime or a live QUINN operator interface.
 
-## Page structure
+## Public routes
 
-- `index.html`: standalone cinematic exhibition with a procedural orbital field, interactive architecture explorer, and **local demonstration-only** operator interface.
-- `content/dispatches.json`: a human-reviewed public research archive, loaded from the same origin and rendered as text (not HTML).
-- `proof/`: existing synthetic proof lab, retained without changes.
-- `assets/`: existing static favicon and social preview assets.
-- `styles.css` and `app.js`: pre-redesign assets retained for review and easy rollback; the new page does not load them.
+- `/quinn/` — cinematic identity-led QUINN homepage, architecture visualizations, locally simulated operator console, and a deterministic in-browser causality lab.
+- `/quinn/research/` — public research record with a reproducible synthetic oscillator dataset, local tamper detection, Python verifier and explicit evidence/provenance boundaries. **No externally validated QUINN scientific discoveries are claimed.**
+- `/quinn/proof/` — existing synthetic Ed25519 fixture demonstration. A passing fixture is self-consistent with disposable bundled keys, but does not prove real identity, consent, physical execution, or third-party attestation.
+- `/quinn/content/dispatches.json` — curated human-reviewed editorial record, not telemetry or a discovery feed.
 
-The new page uses a narrow, SHA-256-hash-based Content-Security-Policy for its one inline CSS block and one inline script. It does not load external libraries, use telemetry, call paid APIs, or connect to QUINN services.
+No live service interfaces, private identity data, system credentials, analytics, payments, or secret keys are present. Interactive controls never send commands to QUINN's private systems.
 
-## Review and publication
+## Verification
 
-Public URL after this branch is merged: https://yng3.github.io/quinn/
+Run `python3 research/reproduce.py` from `quinn/` to independently recompute the synthetic research sample and compare it with the separately derived analytical solution. The browser's research instrument also checks a same-origin SHA-256 manifest and recomputes all recorded samples. **Both the manifest and dataset belong to this same public repository**; the hash alone cannot establish authorship or external trust.
 
-Before merging:
-1. Review public-facing descriptions, confirm claims and publication boundaries.
-2. Check the desktop and mobile layouts, keyboard controls, reduced-motion mode, and the journal's ALL/RESEARCH/THESIS filters.
-3. Open `./proof/` to confirm the preexisting proof lab remains available.
-4. Inspect all new HTML/CSS/JS for inadvertent secrets or live-runtime connectivity.
+The main homepage uses a SHA-256-hash-based Content-Security-Policy for its one inline CSS block and inline JavaScript. The standalone research page loads only local, same-origin CSS/JS/JSON with a self-only CSP. No external scripts, fonts, or third-party dependencies are required.
 
-The curated records are editorial notes, not a live discovery feed. Do not publish private paths, keys, root bundles, credentials, raw logs, or unreleased findings.
+Before changing the public evidence record, review the `research/README.md`, `SECURITY.md` and `proof/SECURITY.md` publication boundaries. Do not automatically publish unreviewed research or expose private bundles, host paths, tokens, root identity material, raw receipts or logs.
