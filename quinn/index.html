@@ -175,6 +175,21 @@
 
 .exp-export{display:flex;justify-content:space-between;gap:16px;width:100%;margin-top:10px;padding:13px 0;border:0;border-bottom:1px solid rgba(176,199,221,.36);background:transparent;color:#b9d9ee;font-size:10px;letter-spacing:.14em;text-align:left}
 .exp-export:hover{color:#fff;border-color:#d1e9fb}.exp-export span{font-size:16px}
+
+/* Public evidence registry: an explicitly offline gateway between demonstration and publication. */
+.evidence-gate{background:#dfe6e3;color:#101c29;padding:100px clamp(22px,5.1vw,88px) 112px;border-top:1px solid #ccd8dc}
+.evidence-gate .chapter-rule{border-color:rgba(20,45,57,.35);color:#304a59}
+.evidence-gate-inner{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(30px,7vw,120px);align-items:end;margin-top:80px}
+.evidence-gate h2{font-size:clamp(55px,8.8vw,146px);line-height:.83;letter-spacing:-.072em;margin:0;font-weight:750}
+.evidence-gate h2 em{font-family:Georgia,serif;font-weight:400;color:#496979}
+.evidence-gate-aside{padding-bottom:5px}
+.evidence-gate-aside>span{font:700 10px/1.7 Consolas,monospace;letter-spacing:.12em;color:#5b7482}
+.evidence-gate-aside p{font-size:16px;line-height:1.8;color:#4d6872;margin:24px 0 34px;max-width:450px}
+.evidence-gate-aside a{display:inline-flex;justify-content:space-between;align-items:center;gap:25px;padding:18px 22px;background:#102432;color:#e9f6ed;font:700 10px Consolas,monospace;letter-spacing:.1em}
+.evidence-gate-aside a:hover{background:#244657}.evidence-gate-note{border-top:1px solid #98abb5;margin-top:65px;padding-top:22px;display:flex;justify-content:space-between;gap:20px;font:700 9px/1.6 Consolas,monospace;letter-spacing:.07em;color:#476474}
+.evidence-gate-note span:last-child{color:#805e52}
+@media(max-width:760px){.evidence-gate{padding-top:78px;padding-bottom:76px}.evidence-gate-inner{grid-template-columns:1fr;gap:35px;margin-top:58px}.evidence-gate h2{font-size:clamp(58px,12vw,99px)}.evidence-gate-aside p{margin:15px 0 25px}.evidence-gate-note{flex-direction:column;margin-top:52px;gap:7px}}
+@media(max-width:400px){.evidence-gate h2{font-size:clamp(49px,13vw,63px)}}
 </style>
 <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
 <meta property="og:type" content="website" />
@@ -182,7 +197,7 @@
 <meta property="og:description" content="An identity-first intelligence architecture, presented as a cinematic public exhibition." />
 <meta property="og:image" content="./assets/preview.svg" />
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-0BR953q3YoFTcUEFu7ne/3ksOQ43XTd+nV8VdXvyo4I='; style-src 'sha256-hi2hBZZuhJLKlGK92I1Kg5XVHd0EZplnbmL7sp1sXoE='; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-0BR953q3YoFTcUEFu7ne/3ksOQ43XTd+nV8VdXvyo4I='; style-src 'sha256-wDh1vYUxqCNAnVyEZsqzpX7CRCguV3yvgTnQq4FHNnM='; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'" />
 </head>
 <body>
 <a href="#content" class="skip-link">Skip to main content</a>
@@ -288,13 +303,26 @@
   </div>
 </section>
 
+
+<section class="evidence-gate" id="evidence" aria-labelledby="evidence-heading">
+  <div class="chapter-rule"><span>07 / THE EVIDENCE STANDARD</span><span>THE RESULT IS NOT THE CLAIM</span></div>
+  <div class="evidence-gate-inner">
+    <h2 id="evidence-heading">WHAT<br>CAN WE<br><em>prove?</em></h2>
+    <div class="evidence-gate-aside"><span>PUBLIC RECORD / 001</span>
+      <p>Inspect a published synthetic dataset, run an independent mathematical cross-check in your browser, and see precisely what remains unverified. This is an evidence demonstration—not live QUINN telemetry or a verified QUINN scientific discovery.</p>
+      <a href="./research/">OPEN THE RESEARCH RECORD <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="evidence-gate-note"><span>01 REPRODUCIBLE SYNTHETIC BENCHMARK / 01 SIGNED TEST VECTOR</span><span>00 EXTERNALLY VALIDATED QUINN SCIENTIFIC RESULTS</span></div>
+</section>
+
 <section class="journal" id="transmissions" aria-labelledby="journal-heading">
   <div class="journal-wrap">
-    <div class="chapter-rule"><span>07 / THE PUBLIC RECORD</span><span>REVIEWED RESEARCH · NOT LIVE TELEMETRY</span></div>
+    <div class="chapter-rule"><span>08 / THE PUBLIC RECORD</span><span>REVIEWED RESEARCH · NOT LIVE TELEMETRY</span></div>
     <div class="journal-head reveal"><div><p class="smallcaps">AN OPEN WINDOW INTO THE PROCESS</p><h2 id="journal-heading">THE <span class="serif">record.</span></h2></div><p>Ideas, proof notes, and research dispatches published only after human review. Nothing on this page exposes QUINN's private runtime, keys, or live systems.</p></div>
     <div class="journal-toolbar"><span class="smallcaps">PUBLIC TRANSMISSIONS</span><div class="journal-filters" role="group" aria-label="Filter public transmissions"><button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">ALL</button><button type="button" class="filter-button" data-filter="research" aria-pressed="false">RESEARCH</button><button type="button" class="filter-button" data-filter="thesis" aria-pressed="false">THESIS</button></div><span id="archive-count" class="smallcaps" aria-live="polite">— RECORDS</span></div>
     <div class="archive-list" id="archive-list" aria-live="polite"><p class="archive-loading">Loading the public record…</p></div>
-    <div class="journal-bottom"><span class="smallcaps">PUBLIC PROOFS USE SYNTHETIC TEST DATA</span><a class="journal-proof" href="./proof/">OPEN THE PROOF LAB <span aria-hidden="true">↗</span></a></div>
+    <div class="journal-bottom"><span class="smallcaps">PUBLIC PROOFS USE SYNTHETIC TEST DATA</span><a class="journal-proof" href="./research/">REPRODUCIBLE EVIDENCE <span aria-hidden="true">↗</span></a><a class="journal-proof" href="./proof/">OPEN THE PROOF LAB <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
 </main>

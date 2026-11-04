@@ -1,0 +1,21 @@
+{
+  "external_validation_count": 0,
+  "publication_mode": "human-curated-static",
+  "records": [
+    {
+      "classification": "reproducible synthetic demonstration",
+      "external_validation": false,
+      "id": "synthetic-oscillator-001",
+      "independent_replication": false,
+      "method": "Independent analytical comparison plus cross-implementation RK4 check",
+      "path": "./data/synthetic-oscillator-001.json",
+      "sha256": "925d57f8e3468e7008d93232cb5fbefd51be7a12bccece8bfe755cbdb2fd9a4a",
+      "status": "demonstration only",
+      "subtitle": "Damped-oscillator baseline \u00b7 401 synthetic samples",
+      "title": "When a prediction drifts"
+    }
+  ],
+  "runtime_connection": false,
+  "schema": "quinn-public-research-catalog/v1",
+  "updated_on": "2026-11-04"
+}
