@@ -113,6 +113,68 @@
 @media(max-width:700px){.hero-bottom{align-items:flex-end;flex-wrap:wrap}.hero-bottom .sub{width:100%;max-width:none}.motion-toggle{padding:9px 11px;font-size:8px}.scroll-cue{font-size:9px;gap:7px}.scroll-line{width:26px}.method{padding:70px 22px 75px}.method-intro{margin:73px 0 42px}.method-intro h2{font-size:clamp(67px,15vw,110px)}.method-visual{min-height:280px}.method-dial{width:min(54%,225px)}.method-label-top{top:15px;left:17px}.method-visual-bottom{left:17px;right:17px;bottom:15px;font-size:8px}.method-option{font-size:9px;padding:19px 8px 18px;gap:12px;letter-spacing:0}.method-option span{font-size:9px}.method-readout{padding:29px 22px;min-height:310px}.method-readout h3{font-size:clamp(33px,9vw,48px)}.method-bottom{align-items:flex-start;flex-direction:column;gap:25px}.method-proof{white-space:normal}.method-intro>p:last-child{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.method-dial-ring,.method-dial-ring-1,.method-dial-ring-2,.method-dial-ring-3{animation:none!important}.method-dial{transition:none!important}.motion-toggle{display:none}}
 
+
+/* QUINN / Causality Lab — synthetic scientific visualization */
+.experiment{position:relative;overflow:hidden;background:#e9e8e0;color:#101821;padding:104px clamp(23px,5.1vw,82px) 105px}
+.experiment:before{content:"";position:absolute;inset:0 0 auto;height:550px;pointer-events:none;background:radial-gradient(ellipse 55% 60% at 75% 25%,rgba(107,134,174,.12),transparent)}
+.experiment-wrap{position:relative;max-width:1440px;margin:auto}
+.experiment .chapter-rule{border-color:rgba(20,34,48,.45);color:#354052}
+.experiment-head{display:grid;grid-template-columns:1.35fr .6fr;gap:50px;align-items:end;margin:100px 0 64px}
+.experiment-head .smallcaps{letter-spacing:.15em;color:#42516a;margin-bottom:24px}
+.experiment h2{margin:0;font-size:clamp(68px,9.5vw,150px);line-height:.84;font-weight:600;letter-spacing:-.095em}
+.experiment h2 .serif{color:#375d9b;letter-spacing:-.075em}
+.experiment-head>p{font-size:15px;line-height:1.85;color:#47515d;max-width:390px;margin:0 0 6px}
+.experiment-board{display:grid;grid-template-columns:minmax(310px,.73fr) minmax(0,1.45fr);background:#0a121f;color:#eef1ee;border:1px solid #34465d;box-shadow:0 30px 75px rgba(25,44,69,.12)}
+.experiment-controls{padding:33px clamp(22px,3vw,47px) 34px;border-right:1px solid #334257;min-width:0}
+.exp-panel-index,.exp-viewport-top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#91a6ba;font-size:10px;letter-spacing:.1em}
+.experiment-controls h3{font-size:clamp(29px,3.1vw,46px);letter-spacing:-.07em;line-height:1.02;font-weight:550;margin:52px 0 16px}
+.exp-panel-intro{color:#9daab8;font-size:13px;line-height:1.75;margin:0 0 30px;max-width:350px}
+.exp-presets{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.exp-preset{border:1px solid #405064;background:#111f30;color:#93a6ba;text-align:left;padding:14px 10px;min-width:0;font-size:9px;letter-spacing:.055em;font-weight:700;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.exp-preset span{display:block;font:10px Consolas,monospace;margin-bottom:10px;color:#6786a9}
+.exp-preset:hover,.exp-preset.is-active{background:#d6e6f5;border-color:#d6e6f5;color:#15283c}.exp-preset.is-active span{color:#35597c}
+.exp-inputs{margin:40px 0 26px;display:grid;gap:26px}.exp-input-row label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;color:#b8c7d5}
+.exp-input-row output{font-family:Consolas,monospace;font-size:12px;color:#e9f1f4;white-space:nowrap}
+.exp-input-row input,.exp-scrub input{display:block;width:100%;margin:16px 0 0;accent-color:#9dbceb;cursor:pointer;min-height:17px}
+.exp-spec{padding:18px 0;border-top:1px solid #33475b;border-bottom:1px solid #33475b;display:grid;gap:8px;color:#8da9c8;font-size:10px;letter-spacing:-.015em;line-height:1.5;overflow-wrap:anywhere}
+.exp-actions{display:flex;gap:10px;align-items:stretch;margin-top:28px}
+.exp-play,.exp-reset{border:1px solid #879eb8;padding:14px 16px;font-size:10px;font-weight:700;letter-spacing:.1em;transition:background .2s,color .2s;min-height:46px}
+.exp-play{flex:1;background:#c3d8ec;color:#122237;border-color:#c3d8ec}.exp-play:hover{background:#fff;color:#0d1720}
+.exp-play span{font-size:17px;vertical-align:-1px;margin-right:6px}.exp-reset{background:transparent;color:#cbd9e7}.exp-reset:hover{background:#273a4f}
+.exp-footnote{font-size:11px;line-height:1.65;color:#8196ad;margin:19px 0 0;min-height:40px}
+.experiment-viewport{min-width:0;padding:33px clamp(18px,3vw,44px) 30px;display:flex;flex-direction:column}
+.exp-live-indicator{display:inline-block;width:7px;height:7px;background:#91d1bd;border-radius:50%;margin-right:8px;box-shadow:0 0 11px rgba(126,238,199,.32)}
+.exp-chart{position:relative;min-height:290px;flex:1;margin:22px -8px 0}
+.exp-chart canvas{width:100%;height:100%;min-height:290px;display:block;touch-action:pan-y}
+.exp-legend{display:flex;align-items:center;gap:24px;flex-wrap:wrap;color:#a7b6c6;font-size:9px;letter-spacing:.075em;margin:6px 0 18px}
+.exp-legend span{display:inline-flex;align-items:center;gap:8px}.exp-dot{width:18px;height:3px;display:inline-block}.exp-dot--reference{background:#98ddde}.exp-dot--candidate{background:#edae8b}
+.exp-scrub{border-top:1px solid #304156;padding:15px 0 20px}.exp-scrub label{display:flex;justify-content:space-between;gap:12px;color:#a8bacb;font-size:10px;letter-spacing:.12em}.exp-scrub input{margin-top:8px}
+.exp-readouts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #374b60}
+.exp-readouts>div{padding:19px 13px 18px;border-right:1px solid #374b60;min-width:0;display:flex;flex-direction:column;gap:7px}.exp-readouts>div:last-child{border-right:0}
+.exp-metric-label{color:#7d95ad;font-size:9px;letter-spacing:.09em;line-height:1.4}
+.exp-readouts strong{font-size:clamp(24px,2.7vw,41px);font-weight:500;line-height:1.1;letter-spacing:-.06em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.exp-unit{color:#8a9cae;font-size:10px}
+.experiment-facts{margin-top:35px;display:grid;grid-template-columns:.78fr 1fr;gap:60px;align-items:start;border-top:1px solid #a0a6a7;padding-top:24px;color:#344251}
+.experiment-facts p{font-size:12px;line-height:1.75;margin:0}.experiment-facts p:first-child{font:700 12px/1.6 Consolas,monospace;letter-spacing:.14em}.experiment-facts strong{color:#151c22}
+@media(max-width:1100px){.experiment-board{grid-template-columns:minmax(270px,.82fr) minmax(0,1.2fr)}.exp-preset{font-size:8px;padding:12px 7px}.exp-readouts strong{font-size:27px}}
+@media(max-width:880px){.experiment-head{grid-template-columns:1fr;gap:28px}.experiment-head>p{max-width:560px}.experiment-board{grid-template-columns:1fr}.experiment-controls{border-right:0;border-bottom:1px solid #334257}.exp-presets{max-width:580px}.experiment-controls h3{margin-top:35px}.experiment-viewport{min-height:475px}.exp-chart{height:320px;flex:initial}.exp-readouts strong{font-size:clamp(24px,5vw,42px)}}
+@media(max-width:600px){.experiment{padding:70px 22px 78px}.experiment-head{margin:75px 0 39px}.experiment h2{font-size:clamp(63px,14vw,88px)}.experiment-head>p{font-size:13px}.experiment-controls{padding:25px 20px}.experiment-viewport{padding:25px 17px 25px;min-height:0}.exp-viewport-top{font-size:9px}.exp-chart{height:265px;min-height:265px;margin:15px -6px 0}.exp-chart canvas{min-height:265px}.exp-readouts strong{font-size:clamp(21px,6vw,30px)}.exp-readouts>div{padding:13px 8px}.exp-metric-label{font-size:8px}.exp-legend{gap:15px}.exp-presets{gap:4px}.exp-preset{font-size:8px;padding:11px 7px}.experiment-facts{grid-template-columns:1fr;gap:13px}.experiment-controls h3{font-size:35px}}
+@media(prefers-reduced-motion:reduce){.exp-preset,.exp-play,.exp-reset{transition:none}}
+
+
+/* Cross-device layout: keep original sections inside phone/tablet viewport. */
+@media(min-width:701px) and (max-width:980px){.site-nav{gap:12px}.nav-links{display:none}.nav-end{margin-left:auto}}
+@media(max-width:700px){.manifesto-grid{grid-template-columns:minmax(0,1fr)}.manifesto-copy{min-width:0}.manifesto-diagram{width:100%;min-width:0;max-width:100%;height:clamp(235px,80vw,360px);min-height:0;aspect-ratio:auto}.diagram-label{left:14px;top:14px}.diagram-code{right:14px;bottom:14px}}
+
+@media(max-width:380px){.statement-inner{width:100%;min-width:0;max-width:100%}.statement h2{font-size:clamp(44px,14vw,56px);overflow-wrap:anywhere}.statement p{max-width:100%}}
+
+@media(max-width:600px){.experiment-head{grid-template-columns:minmax(0,1fr)}.experiment-head>div{min-width:0}}
+@media(max-width:359px){.experiment h2{font-size:49px;letter-spacing:-.095em}}
+
+@media(max-width:380px){.principles h2{font-size:clamp(46px,13vw,58px);overflow-wrap:anywhere}}
+
+.exp-export{display:flex;justify-content:space-between;gap:16px;width:100%;margin-top:10px;padding:13px 0;border:0;border-bottom:1px solid rgba(176,199,221,.36);background:transparent;color:#b9d9ee;font-size:10px;letter-spacing:.14em;text-align:left}
+.exp-export:hover{color:#fff;border-color:#d1e9fb}.exp-export span{font-size:16px}
 </style>
 <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
 <meta property="og:type" content="website" />
@@ -120,14 +182,14 @@
 <meta property="og:description" content="An identity-first intelligence architecture, presented as a cinematic public exhibition." />
 <meta property="og:image" content="./assets/preview.svg" />
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-DuhiTnOE+4lAdBKJvWjKCAQgS7FhrgVZKWJJM6aybmA='; style-src 'sha256-02YmrnaGaxUwRikHxpg1vJcve1s2IsNVN860MeGZ3t4='; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-0BR953q3YoFTcUEFu7ne/3ksOQ43XTd+nV8VdXvyo4I='; style-src 'sha256-hi2hBZZuhJLKlGK92I1Kg5XVHd0EZplnbmL7sp1sXoE='; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'" />
 </head>
 <body>
 <a href="#content" class="skip-link">Skip to main content</a>
 <div id="progress"></div>
 <header class="site-nav" aria-label="Main navigation">
 <a href="#top" class="brand" aria-label="QUINN, back to beginning"><svg class="brand-symbol" viewBox="0 0 64 64" aria-hidden="true"><circle cx="30" cy="30" r="22" fill="none" stroke="#eff1ed" stroke-width="5"/><path d="M43 44L58 58" stroke="#eff1ed" stroke-width="5"/></svg><span class="brand-word">QUINN</span></a>
-<nav class="nav-links" aria-label="Sections"><a href="#philosophy">Philosophy</a><a href="#architecture">Architecture</a><a href="#principles">Principles</a><a href="#transmissions">Journal</a></nav>
+<nav class="nav-links" aria-label="Sections"><a href="#philosophy">Philosophy</a><a href="#architecture">Architecture</a><a href="#principles">Principles</a><a href="#experiment">Lab</a><a href="#transmissions">Journal</a></nav>
 <div class="nav-end"><span class="nav-status"><i class="status-dot"></i> Public exhibition · 001</span><button class="outline-btn enter-operator">Enter interface <span class="arr">↗</span></button></div>
 </header>
 <main id="content">
@@ -184,9 +246,51 @@
   </div>
 </section>
 
+<section class="experiment" id="experiment" aria-labelledby="experiment-heading">
+  <div class="experiment-wrap">
+    <div class="chapter-rule"><span>06 / THE EXPERIMENT STATION</span><span>SYNTHETIC PHYSICS · NO LIVE CONNECTION</span></div>
+    <div class="experiment-head reveal">
+      <div><p class="smallcaps">THOUGHT EXPERIMENT / 001</p><h2 id="experiment-heading">CHALLENGE<br>THE <span class="serif">model.</span></h2></div>
+      <p>What happens when a mathematical explanation meets a new condition? Change the experiment. Watch a fixed candidate prediction drift away from a synthetic reference.</p>
+    </div>
+    <div class="experiment-board reveal">
+      <div class="experiment-controls">
+        <div class="exp-panel-index mono"><span>QNN / CAUSALITY LAB</span><span>001—003</span></div>
+        <h3>Set the conditions.</h3>
+        <p class="exp-panel-intro">A damped spring system. Both curves are computed in your browser; neither is a real-world measurement.</p>
+        <div class="exp-presets" role="group" aria-label="Select simulated experiment">
+          <button class="exp-preset is-active" type="button" data-experiment="baseline" aria-pressed="true"><span>01</span> BASELINE</button>
+          <button class="exp-preset" type="button" data-experiment="force" aria-pressed="false"><span>02</span> NEW FORCE</button>
+          <button class="exp-preset" type="button" data-experiment="stress" aria-pressed="false"><span>03</span> STRESS TEST</button>
+        </div>
+        <div class="exp-inputs">
+          <div class="exp-input-row"><label for="expPosition">Initial displacement <output for="expPosition" id="expPositionValue">0.80 m</output></label><input id="expPosition" type="range" min="0.2" max="1.8" step="0.05" value="0.8" /></div>
+          <div class="exp-input-row"><label for="expForce">Applied force <output for="expForce" id="expForceValue">0.00 N</output></label><input id="expForce" type="range" min="-1.5" max="1.5" step="0.05" value="0" /></div>
+        </div>
+        <div class="exp-spec mono"><span>REFERENCE: a = −2.5x − 0.3v + 0.5F</span><span>CANDIDATE: a = −2.38x − 0.26v + 0.48F</span></div>
+        <div class="exp-actions"><button id="expPlay" class="exp-play" type="button" aria-pressed="false"><span aria-hidden="true">↻</span> REPLAY EXPERIMENT</button><button id="expReset" class="exp-reset" type="button">RESET</button></div>
+        <button class="exp-export mono" id="expExport" type="button" aria-label="Download current synthetic trajectory as CSV">EXPORT SYNTHETIC DATA <span aria-hidden="true">↧</span></button>
+        <p class="exp-footnote" id="expSummary" role="status">Baseline condition selected. The fixed illustrative model is intentionally imperfect.</p>
+      </div>
+      <div class="experiment-viewport">
+        <div class="exp-viewport-top mono"><span><span class="exp-live-indicator"></span> LOCAL SIMULATION</span><span>POSITION / TIME</span></div>
+        <div class="exp-chart"><canvas id="experimentCanvas" role="img" aria-label="Interactive chart of synthetic reference and illustrative candidate position over twelve seconds. Values are also reported below.">A simulated damped spring position graph.</canvas></div>
+        <div class="exp-legend mono"><span><i class="exp-dot exp-dot--reference"></i> SYNTHETIC REFERENCE</span><span><i class="exp-dot exp-dot--candidate"></i> FIXED CANDIDATE</span></div>
+        <div class="exp-scrub"><label class="mono" for="expTime">TIME <span id="expTimeValue">12.0 s</span></label><input id="expTime" type="range" min="0" max="12" step="0.03" value="12" aria-label="Scrub simulated elapsed time" /></div>
+        <div class="exp-readouts">
+          <div><span class="exp-metric-label mono">SYNTHETIC POSITION</span><strong id="expReferenceValue">—</strong><span class="exp-unit">metres</span></div>
+          <div><span class="exp-metric-label mono">CANDIDATE POSITION</span><strong id="expCandidateValue">—</strong><span class="exp-unit">metres</span></div>
+          <div><span class="exp-metric-label mono">FULL-WINDOW RMSE</span><strong id="expErrorValue">—</strong><span class="exp-unit">metres</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="experiment-facts"><p>THE DIFFERENCE IS THE QUESTION.</p><p><strong>What this shows:</strong> a deliberately approximate, frozen candidate equation can diverge under different initial conditions. This is a deterministic teaching simulation—not a trained QUINN model, scientific discovery, or independent validation.</p></div>
+  </div>
+</section>
+
 <section class="journal" id="transmissions" aria-labelledby="journal-heading">
   <div class="journal-wrap">
-    <div class="chapter-rule"><span>06 / THE PUBLIC RECORD</span><span>REVIEWED RESEARCH · NOT LIVE TELEMETRY</span></div>
+    <div class="chapter-rule"><span>07 / THE PUBLIC RECORD</span><span>REVIEWED RESEARCH · NOT LIVE TELEMETRY</span></div>
     <div class="journal-head reveal"><div><p class="smallcaps">AN OPEN WINDOW INTO THE PROCESS</p><h2 id="journal-heading">THE <span class="serif">record.</span></h2></div><p>Ideas, proof notes, and research dispatches published only after human review. Nothing on this page exposes QUINN's private runtime, keys, or live systems.</p></div>
     <div class="journal-toolbar"><span class="smallcaps">PUBLIC TRANSMISSIONS</span><div class="journal-filters" role="group" aria-label="Filter public transmissions"><button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">ALL</button><button type="button" class="filter-button" data-filter="research" aria-pressed="false">RESEARCH</button><button type="button" class="filter-button" data-filter="thesis" aria-pressed="false">THESIS</button></div><span id="archive-count" class="smallcaps" aria-live="polite">— RECORDS</span></div>
     <div class="archive-list" id="archive-list" aria-live="polite"><p class="archive-loading">Loading the public record…</p></div>
@@ -322,6 +426,112 @@
   if(!tabs.length||!screen||!panel)return;
   function choose(tab){const entry=data[tab.dataset.phase];if(!entry)return;tabs.forEach(b=>{let on=b===tab;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});screen.dataset.phase=tab.dataset.phase;panel.setAttribute('aria-labelledby',tab.id);document.querySelector('#method-count').textContent=entry.count;document.querySelector('#method-title').textContent=entry.title;document.querySelector('#method-description').textContent=entry.description;document.querySelector('#method-criterion').textContent=entry.criterion}
   tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>choose(tab));tab.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();let n=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;choose(tabs[n]);tabs[n].focus()})});
+})();
+
+
+/* Browser-local synthetic experiment. No learning, model fitting, data collection, or backend. */
+(() => {
+  'use strict';
+  const root=document.querySelector('#experiment');
+  if(!root)return;
+  const $=s=>root.querySelector(s), $$=s=>[...root.querySelectorAll(s)];
+  const canvas=$('#experimentCanvas'),ctx=canvas.getContext('2d');
+  if(!ctx)return;
+  const presets={
+    baseline:{x0:.8,F:0,summary:'Baseline: familiar initial condition. The fixed candidate is deliberately approximate.'},
+    force:{x0:.8,F:1,summary:'New force: both systems receive the same unfamiliar constant input. Compare their predictions.'},
+    stress:{x0:1.6,F:-1.2,summary:'Stress test: a larger displacement and reversed force increase the challenge.'}
+  };
+  const T=12,dt=.03,N=Math.round(T/dt);
+  const position=$('#expPosition'),force=$('#expForce'),time=$('#expTime');
+  const play=$('#expPlay'),reset=$('#expReset'),presetsBtns=$$('.exp-preset');
+  let x0=.8,F=0,t=T,running=false,frame=0,lastStamp=0,data=[],rmse=0,width=600,height=320;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+  const fix=(v,n=2)=>(Math.abs(v)<.0005?0:v).toFixed(n);
+  function rk4(x,v,h,acc){
+    const k1v=acc(x,v),k1x=v;
+    const k2v=acc(x+h*k1x/2,v+h*k1v/2),k2x=v+h*k1v/2;
+    const k3v=acc(x+h*k2x/2,v+h*k2v/2),k3x=v+h*k2v/2;
+    const k4v=acc(x+h*k3x,v+h*k3v),k4x=v+h*k3v;
+    return [x+h*(k1x+2*k2x+2*k3x+k4x)/6,v+h*(k1v+2*k2v+2*k3v+k4v)/6];
+  }
+  function compute(){
+    let x=x0,v=0,hat=x0,vhat=0,e2=0;
+    data=[{t:0,x,hat}];
+    for(let i=1;i<=N;i++){
+      [x,v]=rk4(x,v,dt,(p,q)=>-2.5*p-.3*q+.5*F);
+      [hat,vhat]=rk4(hat,vhat,dt,(p,q)=>-2.38*p-.26*q+.48*F);
+      data.push({t:i*dt,x,hat});e2+=(x-hat)**2;
+    }
+    rmse=Math.sqrt(e2/N);
+    position.value=String(x0);force.value=String(F);
+    $('#expPositionValue').textContent=fix(x0)+' m';
+    $('#expForceValue').textContent=(F>0?'+':'')+fix(F)+' N';
+    $('#expErrorValue').textContent=fix(rmse,3);
+    update();
+  }
+  function update(){
+    const n=clamp(Math.round(t/dt),0,N),a=data[n];
+    if(!a)return;
+    $('#expTimeValue').textContent=fix(t,1)+' s';time.value=String(t);
+    $('#expReferenceValue').textContent=fix(a.x,3);
+    $('#expCandidateValue').textContent=fix(a.hat,3);
+    draw();
+  }
+  function dimensions(){
+    const r=canvas.getBoundingClientRect();width=Math.max(100,r.width);height=Math.max(200,r.height);
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);draw();
+  }
+  function draw(){
+    if(!data.length)return;
+    ctx.clearRect(0,0,width,height);
+    const pad={l:48,r:19,t:20,b:34},pw=Math.max(20,width-pad.l-pad.r),ph=Math.max(20,height-pad.t-pad.b);
+    let amax=Math.max(1.2,Math.abs(x0)*1.24,Math.abs(F)*.54);
+    for(const d of data)amax=Math.max(amax,Math.abs(d.x)*1.1,Math.abs(d.hat)*1.1);
+    amax=Math.ceil(amax*2)/2;
+    const sx=s=>pad.l+pw*s/T,sy=v=>pad.t+ph*(1-(v+amax)/(2*amax));
+    ctx.font='10px Consolas,monospace';ctx.textBaseline='middle';
+    for(let y=-amax,j=0;j<=4;j++,y+=amax/2){
+      const py=sy(y);ctx.beginPath();ctx.moveTo(pad.l,py);ctx.lineTo(width-pad.r,py);ctx.strokeStyle=y===0?'rgba(148,169,199,.34)':'rgba(148,169,199,.12)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#7e94aa';ctx.textAlign='right';ctx.fillText(fix(y,1),pad.l-10,py);
+    }
+    for(let sec=0;sec<=T;sec+=3){const px=sx(sec);ctx.beginPath();ctx.moveTo(px,pad.t);ctx.lineTo(px,height-pad.b);ctx.strokeStyle='rgba(148,169,199,.10)';ctx.stroke();ctx.fillStyle='#8296ac';ctx.textAlign='center';ctx.fillText(sec+'s',px,height-17);}
+    function trace(key,color,limit,alpha=1,dashed=false){ctx.beginPath();data.forEach((d,i)=>{if(i>limit)return;const px=sx(d.t),py=sy(d[key]);if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py)});ctx.setLineDash(dashed?[6,5]:[]);ctx.strokeStyle=color;ctx.globalAlpha=alpha;ctx.lineWidth=alpha<.5?1.2:2.4;ctx.lineJoin='round';ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;}
+    const upto=clamp(Math.round(t/dt),0,N);
+    trace('x','#98ddde',N,.19);trace('hat','#edae8b',N,.22,true);
+    trace('x','#98ddde',upto);trace('hat','#edae8b',upto,1,true);
+    const now=data[upto];const cx=sx(now.t);
+    ctx.setLineDash([3,5]);ctx.beginPath();ctx.moveTo(cx,pad.t);ctx.lineTo(cx,height-pad.b);ctx.strokeStyle='rgba(220,233,244,.55)';ctx.lineWidth=1;ctx.stroke();ctx.setLineDash([]);
+    for(const [value,color] of [[now.x,'#98ddde'],[now.hat,'#edae8b']]){ctx.beginPath();ctx.arc(cx,sy(value),4.2,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();ctx.strokeStyle='#0a121f';ctx.lineWidth=1.5;ctx.stroke();}
+  }
+  function stop(){running=false;cancelAnimationFrame(frame);frame=0;lastStamp=0;syncButton()}
+  function syncButton(){play.setAttribute('aria-pressed',String(running));play.innerHTML=running?'<span aria-hidden="true">Ⅱ</span> PAUSE EXPERIMENT':'<span aria-hidden="true">↻</span> REPLAY EXPERIMENT'}
+  function loop(stamp){if(!running)return;if(!lastStamp)lastStamp=stamp;t=clamp(t+(stamp-lastStamp)/1000,0,T);lastStamp=stamp;update();if(t>=T){stop();return}frame=requestAnimationFrame(loop)}
+  function restart(){stop();t=0;update();running=true;syncButton();frame=requestAnimationFrame(loop)}
+  play.addEventListener('click',()=>{if(running){stop();$('#expSummary').textContent='Simulation paused. Use the timeline to inspect any moment.'}else{if(t>=T-.01)t=0;running=true;lastStamp=0;syncButton();frame=requestAnimationFrame(loop);$('#expSummary').textContent='Replaying deterministic synthetic trajectories. No external data is used.'}});
+  reset.addEventListener('click',()=>{stop();x0=presets.baseline.x0;F=presets.baseline.F;t=T;presetsBtns.forEach(btn=>{const yes=btn.dataset.experiment==='baseline';btn.classList.toggle('is-active',yes);btn.setAttribute('aria-pressed',String(yes))});$('#expSummary').textContent='Reset to the baseline. Candidate coefficients remain fixed across all tests.';compute()});
+  presetsBtns.forEach(btn=>btn.addEventListener('click',()=>{const preset=presets[btn.dataset.experiment];if(!preset)return;stop();x0=preset.x0;F=preset.F;t=T;presetsBtns.forEach(b=>{const yes=b===btn;b.classList.toggle('is-active',yes);b.setAttribute('aria-pressed',String(yes))});$('#expSummary').textContent=preset.summary;compute()}));
+  for(const [el,key] of [[position,'x0'],[force,'F']])el.addEventListener('input',()=>{stop();if(key==='x0')x0=Number(el.value);else F=Number(el.value);t=T;presetsBtns.forEach(b=>{b.classList.remove('is-active');b.setAttribute('aria-pressed','false')});$('#expSummary').textContent='Custom conditions. Both traces recomputed locally; candidate coefficients stay frozen.';compute()});
+  time.addEventListener('input',()=>{stop();t=clamp(Number(time.value),0,T);update()});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+  if('IntersectionObserver' in window)new IntersectionObserver(entries=>{if(!entries[0].isIntersecting&&running)stop()},{threshold:0}).observe(root);
+  if('ResizeObserver' in window)new ResizeObserver(dimensions).observe(canvas);else window.addEventListener('resize',dimensions,{passive:true});
+  if(reduced.matches)$('#expSummary').textContent='Reduced motion: animation is paused by default. Choose Replay to animate explicitly.';
+
+  const exporter=$('#expExport');
+  exporter.addEventListener('click',()=>{
+    const rows=['time_s,reference_position_m,candidate_position_m,candidate_minus_reference_m'];
+    for(const d of data)rows.push([d.t,d.x,d.hat,d.hat-d.x].map(v=>v.toFixed(6)).join(','));
+    const csv=rows.join('\n')+'\n';
+    const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+    const link=document.createElement('a');link.href=url;link.download='quinn-synthetic-spring-experiment.csv';document.body.append(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+    $('#expSummary').textContent='Synthetic CSV exported locally. No QUINN runtime data was accessed.';
+  });
+
+  syncButton();compute();dimensions();
 })();
 
 </script>
