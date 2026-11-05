@@ -33,3 +33,19 @@ The public homepage keeps QUINN and ETH Kraken Bot only in the lower `Selected w
 Validated via isolated Chromium rendering at viewport widths 1440, 1024, 820, 390, and 320px. Confirmed architecture tab selection and keyboard Home navigation, simulated condition presets, 24/48/72 chart controls and canvas rendering, absence of detected JavaScript errors, no horizontal overflow, and matching dark styles. GitHub Pages routing and any production deployment should be inspected after merge.
 
 Research-software demonstration only. Not investment advice or evidence of qualified live trading.
+
+## Trading interface refinements — November 5, 2026
+
+The second portfolio iteration strengthens the interface while leaving the private bot and its factual claims unchanged:
+
+- Synthetic chart now supports 24/48/72 generated-bar windows, candle/close-line views, pointer and keyboard inspection of individual bars, and unitless open/high/low/close/volume readouts. Downloaded CSV data is generated locally and is **not** an export of Kraken data, executed trades, or performance history.
+- The five-stage architecture explorer now has a corresponding five-node diagram. Stages for the paper adapter and reconciliation no longer share the same diagram node.
+- A source/evidence classification panel distinguishes implementation described in the handoff, project-record-reported tests, the isolated failed shadow simulation, and unestablished performance claims.
+- Mobile navigation retains all section links, with visible focus styles and a dedicated screen-reader announcement for keyboard-based chart inspection.
+- No external data sources, accounts, order controls, API keys, LLM dependencies, or analytics were introduced. The site uses static HTML, CSS, and browser-local JavaScript.
+
+### Verification scope
+
+Playwright Chromium interaction tests covered widths of 320, 390, 820, 1024, and 1440 px. Tested chart modes, all ranges, keyboard/step selection, local CSV download containing a header and 72 rows, stage selection, strategy presets, and horizontal overflow. Tests used an in-memory page with bundled local assets because direct `file://` navigation is restricted in the test environment; normal GitHub Pages serving and cross-page navigation remain deployment checks. Content Security Policy retains `connect-src 'none'` and same-origin asset restrictions.
+
+The underlying facts still derive from the November 5 handoff and historical project records, not a newly verified code audit. No additional performance claims are made.
