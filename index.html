@@ -1,262 +1,239 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#000000">
-    <meta name="description" content="YNG3 is a curated window into independent experiments in identity, intelligent systems, and digital technology.">
-    <title>YNG3</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
-    <style>
-      body {
-        background-color: #000;
-        color: #fff;
-        font-family: "Helvetica Neue", Arial, sans-serif;
-        text-align: center;
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080911">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="YNG3 — an independent digital realm for experiments in intelligence, identity, and the edges of possibility.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YNG3 — Enter the unknown">
+  <meta property="og:description" content="An independent digital realm. Ideas from the outer edge of possibility.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-AXZMKJJujIDVJ7ZecGGyxJ84x9HVHSJ6TWAUanQEvZ8='; style-src 'sha256-KeKSP3oA4rVaIktxo6ekA5B8B5Bz6MRP3VhpO3Pt9EY='; img-src 'self' data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>YNG3 — Enter the Unknown</title>
+  <link rel="icon" href="./logo.ico" sizes="any">
+  <style>
+:root{--dark:#080911;--dark2:#0e1020;--paper:#eeece7;--ink:#101114;--violet:#a8a6f8;--fuchsia:#f8aab9;--ice:#dfedf6;--line:rgba(255,255,255,.17);--micro:'SFMono-Regular',Consolas,'Liberation Mono',monospace;--display:Arial,Helvetica,sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;color:var(--paper);background:var(--dark);font-family:var(--display);-webkit-font-smoothing:antialiased;overflow-x:hidden}::selection{background:#b8b0fe;color:#101019}a{color:inherit;text-decoration:none}button{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:2px solid #d9cfff;outline-offset:5px}img,canvas,svg{display:block}.skip{position:fixed;left:20px;top:-100px;z-index:1000;padding:12px 18px;background:white;color:black}.skip:focus{top:12px}.intro-curtain{pointer-events:none;position:fixed;inset:0;background:#e9e7e0;color:#13131b;z-index:100;display:grid;place-content:center;gap:22px;text-align:center;animation:curtain .85s var(--ease) .45s both}.intro-curtain span{font-weight:900;font-size:clamp(3rem,13vw,9rem);letter-spacing:-.115em;padding-right:.1em;line-height:.85}.intro-curtain small{font:10px var(--micro);letter-spacing:.2em}.site-frame{position:fixed;inset:12px;border:1px solid rgba(233,228,255,.055);pointer-events:none;z-index:60}.cursor-glow{position:fixed;width:480px;height:480px;left:0;top:0;z-index:10;pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(139,125,255,.068),transparent 65%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s ease}.site-header{position:absolute;top:0;left:0;right:0;height:93px;padding:0 clamp(26px,5.4vw,96px);display:flex;align-items:center;justify-content:space-between;gap:30px;z-index:30;border-bottom:1px solid rgba(255,255,255,.105)}.brand{display:inline-flex;align-items:center;gap:13px;font-size:23px;letter-spacing:-.09em;font-weight:900}.brand-three{color:var(--violet)}.brand-sigil{width:23px;height:23px;display:grid;place-items:center;position:relative;transform:rotate(-24deg)}.brand-sigil i{width:5px;height:22px;position:absolute;background:var(--paper);border-radius:5px}.brand-sigil i:nth-child(2){transform:rotate(60deg)}.brand-sigil i:nth-child(3){transform:rotate(120deg)}.main-nav{display:flex;gap:clamp(14px,3vw,46px)}.main-nav a,.header-action{font:600 10px/1.4 var(--micro);letter-spacing:.15em;white-space:nowrap}.main-nav a{color:#b3b2bd;transition:color .2s}.main-nav a:hover{color:white}.header-action{display:flex;align-items:center;gap:30px;border:1px solid rgba(230,225,255,.33);padding:15px 18px;transition:background .25s,color .25s}.header-action:hover{background:var(--paper);color:#11101b}.header-action span{font-size:17px;line-height:.6}.hero{position:relative;isolation:isolate;min-height:900px;height:100svh;max-height:1150px;overflow:hidden;background:radial-gradient(ellipse at 62% 38%,#17172e 0,#090a14 42%,#070810 78%)}.hero-grid{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(200,187,255,.043) 1px,transparent 1px),linear-gradient(to bottom,rgba(200,187,255,.042) 1px,transparent 1px);background-size:9.1% 100%,100% 11.8%;opacity:.7;mask-image:linear-gradient(to bottom,transparent,black 15%,black 75%,transparent)}.hero-glow{position:absolute;width:min(67vw,900px);aspect-ratio:1;left:52%;top:45%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(101,91,219,.22),rgba(82,68,174,.06) 40%,transparent 65%);filter:blur(25px);pointer-events:none}.hero-meta,.hero-bottom,.hero-edge,.scroll-cue{position:absolute;z-index:7}.hero-meta{top:132px;left:clamp(27px,5.4vw,96px);right:clamp(27px,5.4vw,96px);display:flex;justify-content:space-between;color:rgba(235,233,244,.58);font:9px/1.5 var(--micro);letter-spacing:.12em}.live-dot{display:inline-block;width:6px;height:6px;margin-right:12px;background:#b5a7ff;box-shadow:0 0 14px rgba(185,168,255,.9);border-radius:50%}.meta-cross{color:var(--violet);padding-left:18px;font-size:18px;vertical-align:-3px}.hero-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.hero-object{position:absolute;width:min(70vw,900px);aspect-ratio:1;left:50%;top:48%;transform:translate(-50%,-50%);opacity:.92}#portal{width:100%;height:100%;touch-action:pan-y;filter:saturate(1.08)}.portal-core{position:absolute;top:50%;left:50%;width:15.5%;aspect-ratio:1;border:1px solid rgba(230,221,255,.15);border-radius:50%;transform:translate(-50%,-50%);display:grid;place-items:center;box-shadow:0 0 40px 12px rgba(92,83,255,.05),inset 0 0 40px rgba(219,207,255,.055);pointer-events:none}.portal-cross{font-size:clamp(16px,3vw,42px);color:rgba(248,246,255,.27)}.portal-fine{position:absolute;inset:11%;border:1px solid rgba(233,228,255,.08);border-radius:50%;pointer-events:none}.portal-fine-a{transform:rotate(-20deg) scaleX(.66)}.portal-fine-b{transform:rotate(27deg) scaleX(.9)}.hero-title-wrap{position:relative;z-index:2;text-align:center;mix-blend-mode:screen;margin-top:28px;pointer-events:none}.hero-kicker{display:block;margin-bottom:14px;font:600 10px var(--micro);letter-spacing:.42em;color:#cecfdd}.hero-title{margin:0;color:#f6f4f0;font-size:clamp(170px,27vw,510px);letter-spacing:-.143em;padding-right:.13em;font-weight:900;line-height:.8;text-shadow:0 8px 80px rgba(11,10,40,.4)}.hero-title>span:first-child{color:transparent;-webkit-text-stroke:2px rgba(231,227,255,.88);text-shadow:none}.hero-title-dot{color:#beb2ff;font-size:.8em;letter-spacing:-.16em}.hero-subline{display:flex;justify-content:center;align-items:baseline;gap:23px;margin-top:45px;color:rgba(246,247,248,.86)}.hero-subline span{font:600 10px var(--micro);letter-spacing:.22em}.hero-subline span:nth-child(2){color:#aaa6ba}.hero-subline em{font:italic clamp(25px,3.1vw,54px) Georgia,serif;letter-spacing:-.055em;color:#e4d8f8}.hero-bottom{bottom:85px;left:clamp(27px,5.4vw,96px);right:clamp(27px,5.4vw,96px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px}.hero-description{max-width:355px}.micro-label,.mode-label{font:10px var(--micro);letter-spacing:.18em;color:#a8a6c4}.hero-description p{color:#c0c0ce;margin:15px 0 0;font:15px/1.7 var(--display);max-width:330px}.hero-commands{text-align:right}.mode-label{margin-bottom:16px}.mode-label span{margin-left:12px;color:#d8cffd}.mode-controls{display:flex;gap:5px;justify-content:flex-end}.mode-control{cursor:pointer;border:1px solid rgba(246,241,255,.23);background:rgba(17,18,35,.55);color:#a9a6c0;padding:14px 16px;font:10px var(--micro);letter-spacing:.06em;transition:background .25s,border .25s,color .25s}.mode-control:hover,.mode-control.active{color:#171329;background:#eae5ff;border-color:#eae5ff}.motion-toggle{margin-top:14px;border:0;background:none;color:#9999ac;padding:2px 0;cursor:pointer;font:9px var(--micro);letter-spacing:.12em}.motion-toggle span{margin-left:8px;color:#ccc1f8}.scroll-cue{left:50%;bottom:24px;transform:translateX(-50%);display:flex;gap:10px;align-items:center;font:9px var(--micro);letter-spacing:.1em;color:#b3acc6;white-space:nowrap}.scroll-line{height:1px;width:24px;background:#69647d}.hero-edge{bottom:46%;font:9px var(--micro);letter-spacing:.2em;color:#87849d;writing-mode:vertical-rl}.hero-edge-left{left:18px;transform:rotate(180deg)}.hero-edge-right{right:18px}.statement{background:#0b0c13;min-height:620px;padding:90px clamp(26px,7vw,130px) 70px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.statement::before{content:'✳';position:absolute;right:-4%;top:10px;font-size:min(45vw,700px);line-height:1;color:rgba(196,186,255,.018);pointer-events:none}.statement-number,.statement-bottom{font:10px var(--micro);letter-spacing:.15em;color:#9998b2}.statement-text{font-size:clamp(44px,7.5vw,128px);font-weight:800;line-height:.99;letter-spacing:-.09em;margin:70px 0 90px;position:relative;z-index:2}.statement-serif{font:italic 500 .98em Georgia,serif;letter-spacing:-.078em;color:#b3a8ff}.statement-bottom{display:flex;justify-content:space-between;align-items:center}.statement-spark{font-size:35px;line-height:.8;color:#b7a9f7}.work{background:var(--paper);color:var(--ink);padding:52px clamp(26px,7vw,130px) 110px}.section-head{display:flex;justify-content:space-between;border-top:1px solid rgba(13,13,20,.28);padding-top:18px;font:10px var(--micro);letter-spacing:.16em}.work-heading{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:0 40px;margin:112px 0 80px}.eyebrow-dark{font:10px var(--micro);letter-spacing:.16em;color:#6a6672;margin:0 0 28px}.work-heading .eyebrow-dark{grid-column:1/-1}.work-heading h2,.connect h2{font-size:clamp(65px,9.2vw,165px);font-weight:900;line-height:.82;letter-spacing:-.103em;margin:0}.work-heading h2 em,.connect h2 em{font:italic 500 1.08em Georgia,serif;letter-spacing:-.09em;color:#8274c3}.work-intro{align-self:end;max-width:310px;font-size:15px;line-height:1.7;margin:0 0 9px;color:#59575d}.feature{border:1px solid rgba(19,19,22,.26);display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);min-height:570px}.feature-art{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 55% 45%,#272d42 0%,#111422 45%,#080a12 85%);min-height:550px;color:#ede8ff;isolation:isolate}.feature-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(238,223,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(238,223,255,.045) 1px,transparent 1px);background-size:9% 9%;transform:perspective(700px) rotateX(35deg) scale(1.5)}.feature-orbit{position:absolute;width:64%;aspect-ratio:1;border:1px solid rgba(211,199,255,.32);border-radius:50%;transform:rotate(32deg) scaleX(.58);transition:transform 1s var(--ease);box-shadow:0 0 50px rgba(171,157,255,.055)}.feature-orbit-a{width:80%;transform:rotate(55deg) scaleX(.7);border-color:rgba(176,167,255,.23)}.feature-orbit-b{width:71%;transform:rotate(-45deg) scaleX(.48);border-color:rgba(217,225,250,.4)}.feature-orbit-c{width:47%;transform:rotate(8deg) scaleX(.89);border-color:rgba(224,218,255,.5)}.feature-art:hover .feature-orbit-a{transform:rotate(105deg) scaleX(.7)}.feature-art:hover .feature-orbit-b{transform:rotate(-105deg) scaleX(.48)}.feature-art:hover .feature-orbit-c{transform:rotate(65deg) scaleX(.89)}.feature-core{display:grid;place-items:center;border:1px solid rgba(219,216,255,.4);border-radius:50%;width:24%;aspect-ratio:1;box-shadow:0 0 70px rgba(154,144,255,.25),inset 0 0 30px rgba(185,163,255,.13);font:200 clamp(45px,8vw,116px) Georgia,serif;z-index:1;position:relative}.feature-art-top,.feature-art-bottom{position:absolute;left:24px;right:24px;z-index:2;display:flex;justify-content:space-between;font:10px var(--micro);letter-spacing:.12em}.feature-art-top{top:24px}.feature-art-bottom{bottom:25px}.feature-art-bottom span{font-size:19px}.feature-copy{padding:clamp(28px,5vw,75px);display:flex;flex-direction:column;align-items:flex-start}.feature-index{display:flex;justify-content:space-between;width:100%;gap:15px;font:10px var(--micro);letter-spacing:.08em;color:#65636c}.feature-status{white-space:nowrap}.feature-status i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8072bd;margin-right:7px}.feature-copy h3{font-size:clamp(82px,9.7vw,156px);line-height:.9;letter-spacing:-.115em;margin:auto 0 12px;font-weight:900}.feature-period{color:#8174c2}.feature-italic{font:italic clamp(27px,2.5vw,45px) Georgia,serif;letter-spacing:-.055em;color:#6d5bb0;margin:0 0 32px}.feature-body{max-width:380px;font-size:16px;line-height:1.7;color:#55545a;margin:0 0 40px}.feature-link{margin-top:auto;width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;border-top:1px solid #9c999f;padding-top:19px;font:700 11px var(--micro);letter-spacing:.07em;transition:color .2s}.feature-link:hover{color:#7365ba}.link-arrow{font-size:26px;transition:transform .25s}.feature-link:hover .link-arrow{transform:translate(4px,-4px)}.index-row{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:20px;border-bottom:1px solid #9a989b;padding:44px 0 44px}.index-no,.index-status{font:10px var(--micro);letter-spacing:.1em;color:#77737b}.index-row h3{font-size:clamp(28px,3vw,44px);font-weight:800;letter-spacing:-.06em;margin:0 0 8px}.index-row p{font-size:14px;line-height:1.6;color:#77747a;margin:0;max-width:400px}.index-status{text-align:right}.index-status span{font-size:16px;color:#8174c2;margin-left:12px}.interlude{min-height:810px;padding:55px clamp(26px,7vw,130px) 58px;background:radial-gradient(ellipse at 50% 55%,#22223f 0,#11121e 45%,#090a11 85%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.interlude-grid{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(12.5% - 1px),rgba(200,195,255,.055) calc(12.5% - 1px),rgba(200,195,255,.055) 12.5%);mask-image:linear-gradient(transparent,black 23%,black 75%,transparent)}.interlude-top,.interlude-bottom{display:flex;justify-content:space-between;position:relative;z-index:2;font:10px var(--micro);letter-spacing:.14em;color:#aaa5c6}.interlude-content{position:relative;z-index:2;margin:100px auto;text-align:center}.interlude-star{display:inline-block;color:#baacff;font-size:60px;line-height:.9;margin-bottom:24px;animation:starspin 30s linear infinite}.interlude-content h2{font-size:clamp(85px,13vw,225px);font-weight:900;letter-spacing:-.117em;line-height:.82;margin:0}.interlude-content h2 em{font:italic 500 1.03em Georgia,serif;letter-spacing:-.09em;color:#c7b7fd}.interlude-content p{font-size:clamp(14px,1.3vw,18px);line-height:1.8;max-width:545px;color:#c1bfd0;margin:45px auto 0}.connect{background:#e6e4df;color:#101014;padding:55px clamp(26px,7vw,130px) 140px}.connect-main{display:grid;grid-template-columns:1.5fr .5fr;gap:40px;margin:120px 0 90px}.connect-main>p{max-width:280px;font-size:17px;line-height:1.7;color:#5e5c60;align-self:end;margin:0 0 10px}.connect-links{border-top:1px solid rgba(20,20,20,.4)}.connect-links a{display:grid;grid-template-columns:.4fr 1.6fr 1fr 30px;gap:20px;align-items:center;min-height:122px;border-bottom:1px solid rgba(20,20,20,.3);transition:padding .3s,background .3s;padding:10px 8px}.connect-links a:hover{padding-left:25px;background:rgba(176,166,241,.16)}.connect-links a span{font:11px var(--micro);letter-spacing:.1em;color:#68646c}.connect-links strong{font-size:clamp(26px,3.6vw,52px);letter-spacing:-.06em}.connect-links b{font-size:24px;font-weight:400}.footer{background:#090a11;padding:45px clamp(26px,7vw,130px) 28px;overflow:hidden}.footer-top,.footer-bottom{display:flex;justify-content:space-between;gap:20px;font:10px var(--micro);letter-spacing:.1em;color:#a9a6b6}.footer-top a{color:#ddd6ff}.footer-type{font-size:clamp(140px,30.5vw,620px);font-weight:900;line-height:.8;letter-spacing:-.16em;white-space:nowrap;padding-right:.18em;margin:65px 0 45px;color:#e7e5e8}.footer-type span{color:transparent;-webkit-text-stroke:2px #e5e2f5}.footer-type i{font-style:normal;color:#b9a9ff}.footer-bottom{padding-top:23px;border-top:1px solid rgba(255,255,255,.17)}.reveal{opacity:1;transform:none}.js .reveal{opacity:0;transform:translateY(55px);transition:opacity 1s var(--ease),transform 1s var(--ease)}.js .reveal.in-view{opacity:1;transform:none}.no-script{padding:15px 20px;background:#12121c;color:white;text-align:center}
+@keyframes curtain{0%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 100% 0);visibility:hidden}}@keyframes starspin{to{transform:rotate(360deg)}}
+@media(max-width:1050px){.hero{min-height:780px}.hero-object{width:min(95vw,790px);top:46%}.hero-title{font-size:clamp(130px,26vw,330px)}.hero-subline{margin-top:35px}.hero-bottom{bottom:80px}.work-heading{margin:100px 0 65px}.work-heading h2{font-size:clamp(66px,9vw,120px)}.feature{min-height:480px}.feature-art{min-height:480px}.feature-copy{padding:35px}.feature-copy h3{font-size:clamp(65px,9vw,110px)}.feature-index{flex-wrap:wrap}.feature-body{font-size:14px}.connect-main{grid-template-columns:1fr auto}}
+@media(max-width:760px){.site-frame{inset:7px}.site-header{height:75px;padding:0 25px}.brand{font-size:21px}.main-nav{display:none}.header-action{padding:12px 14px;gap:14px;font-size:9px}.hero{min-height:690px;height:100svh;max-height:980px}.hero-meta{top:107px;left:26px;right:26px;font-size:8px}.hero-meta span:last-child{display:none}.hero-object{width:112vw;max-width:750px;top:43%;left:50%}.hero-title-wrap{margin-top:0}.hero-kicker{font-size:8px;letter-spacing:.2em;margin-bottom:16px}.hero-title{font-size:clamp(118px,28vw,210px);letter-spacing:-.14em}.hero-subline{display:block;margin-top:24px}.hero-subline span{font-size:8px}.hero-subline span:nth-child(2){display:none}.hero-subline em{display:block;margin-top:9px;font-size:clamp(26px,6vw,43px)}.hero-bottom{bottom:78px;left:27px;right:27px;align-items:flex-start;flex-direction:column;gap:24px}.hero-description{max-width:350px}.hero-description p{font-size:13px;max-width:290px;line-height:1.55;margin-top:10px}.hero-commands{text-align:left}.mode-label{display:none}.mode-controls{justify-content:start}.mode-control{padding:10px 12px;font-size:9px}.motion-toggle{margin-top:10px}.hero-edge{display:none}.scroll-cue{bottom:16px;left:auto;right:25px;transform:none;font-size:8px}.statement{min-height:450px;padding:64px 27px 50px}.statement-text{font-size:clamp(42px,9vw,70px);margin:45px 0}.statement-bottom{font-size:8px}.statement-bottom span:first-child{max-width:230px;line-height:1.7}.work{padding:38px 25px 70px}.section-head{font-size:8px;gap:16px}.work-heading{display:block;margin:85px 0 55px}.work-heading h2{font-size:clamp(67px,11vw,110px)}.work-intro{margin-top:35px;font-size:14px;max-width:310px}.feature{display:block}.feature-art{min-height:420px}.feature-copy{min-height:445px;padding:28px}.feature-copy h3{margin:75px 0 10px;font-size:clamp(80px,19vw,140px)}.feature-body{max-width:100%;font-size:15px}.feature-link{margin-top:auto}.index-row{grid-template-columns:1fr 1fr;align-items:start;padding:35px 0}.index-row>div{grid-column:1/-1;grid-row:2}.index-status{grid-column:2;grid-row:1}.interlude{min-height:640px;padding:40px 25px}.interlude-content{margin:100px auto}.interlude-content h2{font-size:clamp(76px,15vw,130px)}.interlude-content p{font-size:14px}.interlude-star{font-size:45px}.interlude-top,.interlude-bottom{font-size:8px}.connect{padding:40px 25px 95px}.connect-main{display:block;margin:90px 0 65px}.connect h2{font-size:clamp(70px,12vw,125px)}.connect-main>p{font-size:15px;margin:30px 0 0}.connect-links a{grid-template-columns:34px 1fr 23px;min-height:106px;gap:10px}.connect-links a span:nth-child(3){display:none}.connect-links strong{font-size:clamp(27px,7vw,46px)}.footer{padding:38px 25px 26px}.footer-top,.footer-bottom{font-size:8px}.footer-type{margin:90px 0 65px;font-size:31vw}.footer-bottom span:last-child{display:none}}
+@media(max-width:410px){.hero-object{top:42%}.hero-bottom{bottom:69px}.hero-description p{font-size:12px}.hero-kicker{letter-spacing:.08em}.hero-title{font-size:29vw}.hero-subline{margin-top:17px}.hero-subline em{font-size:27px}.mode-control{padding:9px 8px;font-size:8px}.scroll-cue{display:none}.feature-art{min-height:350px}.feature-copy h3{font-size:82px}.work-heading h2{font-size:15vw}.statement-text{font-size:10.1vw}.connect h2{font-size:12vw}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intro-curtain{display:none}.js .reveal{opacity:1;transform:none;transition:none}.interlude-star{animation:none}.feature-orbit,.mode-control,.connect-links a,.link-arrow{transition:none}.cursor-glow{display:none}}
 
-      h1 {
-        font-size: 4em;
-        margin-top: 100px;
-        letter-spacing: 5px;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-      }
+</style>
 
-      p {
-        font-size: 1.5em;
-        margin-top: 30px;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-      }
-
-      a {
-        color: #fff;
-        text-decoration: none;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-      }
-
-      .logo {
-        height: 100px; /* adjust the height to your desired size */
-        width: auto;
-      }
-
-      .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        font-size: .5em;
-        padding: 10px 0;
-        text-align: center;
-      }
-
-      .footer p {
-        margin: 0;
-        padding: 0;
-        line-height: 1;
-      }
-
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 80vh;
-      }
-
-      .button {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 12px 20px;
-        background-color: #fff;
-        color: #000;
-        border-radius: 5px;
-        font-size: 1.2em;
-        text-transform: uppercase;
-        font-weight: bold;
-        letter-spacing: 2px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-
-      .button:hover {
-        background-color: #000;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      /* QUINN portfolio entry */
-      .hero-center {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .quinn-entry {
-        display: inline-flex;
-        align-items: center;
-        gap: 15px;
-        padding: 12px 22px;
-        color: #e4f9ef;
-        border: 1px solid rgba(137, 219, 179, .28);
-        border-radius: 999px;
-        background: rgba(50, 125, 91, .08);
-        font-size: .75rem;
-        font-weight: 500;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        text-shadow: none;
-        text-decoration: none;
-        transition: border-color .25s ease, background .25s ease, transform .25s ease;
-      }
-
-      .quinn-entry:hover, .quinn-entry:focus-visible {
-        color: #fff;
-        background: rgba(50, 125, 91, .18);
-        border-color: rgba(156, 252, 202, .58);
-        transform: translateY(-2px);
-      }
-
-      .quinn-entry small {
-        color: rgba(183, 234, 204, .64);
-        font-size: .65rem;
-        letter-spacing: .14em;
-      }
-
-      @media (max-width: 480px) {
-        .quinn-entry { padding: 12px 15px; gap: 10px; font-size: .7rem; }
-        .quinn-entry small { font-size: .6rem; }
-      }
-
-
-      /* Curated public signals — original YNG3 structure remains intact */
-      .curation {
-        max-width: 850px;
-        margin: 108px auto 0;
-        padding: 0 28px;
-        text-align: left;
-        color: #f0f3f1;
-      }
-      .curation-heading {
-        display: flex;
-        justify-content: space-between;
-        gap: 22px;
-        align-items: baseline;
-        margin-bottom: 19px;
-        color: #929a94;
-        font: 500 10px/1.6 "Helvetica Neue", Arial, sans-serif;
-        letter-spacing: .21em;
-        text-transform: uppercase;
-      }
-      .curation-heading span:last-child { color: #69716c; }
-      .project-reveal { border-top: 1px solid rgba(226,242,232,.2); border-bottom: 1px solid rgba(226,242,232,.2); }
-      .project-reveal summary {
-        display: grid;
-        grid-template-columns: 44px minmax(0,1fr) minmax(125px,.7fr) 60px;
-        align-items: center;
-        gap: 18px;
-        min-height: 102px;
-        cursor: pointer;
-        list-style: none;
-        transition: background .2s ease, padding .2s ease;
-      }
-      .project-reveal summary::-webkit-details-marker { display: none; }
-      .project-reveal summary::marker { content: ""; }
-      .project-reveal summary:hover { background: rgba(181,213,190,.025); padding-left: 8px; }
-      .project-id { color: #9dbca6; font: 500 12px/1.5 monospace; }
-      .project-title { font-size: clamp(24px,3.2vw,37px); font-weight: 450; letter-spacing: .09em; }
-      .project-type { font: 500 10px/1.5 "Helvetica Neue", Arial, sans-serif; color: #919d96; letter-spacing: .13em; text-transform: uppercase; }
-      .project-toggle { font: 500 10px/1.4 "Helvetica Neue", Arial, sans-serif; color: #b7c5b9; letter-spacing: .15em; text-transform: uppercase; text-align: right; }
-      .project-reveal[open] .project-toggle { color: #d8eadd; }
-      .project-reveal[open] .project-toggle::after { content: " /"; }
-      .project-description { max-width: 600px; padding: 0 0 36px 62px; }
-      .project-description p {
-        color: #aebcb1;
-        text-shadow: none;
-        font-size: 14px;
-        line-height: 1.85;
-        max-width: 690px;
-        margin: 0 0 20px;
-        text-align: left;
-      }
-      .project-description a {
-        display: inline-block;
-        color: #d9eadf;
-        border-bottom: 1px solid rgba(192,225,204,.47);
-        padding-bottom: 7px;
-        font: 600 11px/1.5 "Helvetica Neue", Arial, sans-serif;
-        letter-spacing: .14em;
-        text-transform: uppercase;
-      }
-      .project-description a:hover { border-color: #e4ffec; }
-      .footer {
-        position: static;
-        width: 100%;
-        margin-top: 115px;
-        border-top: 1px solid rgba(220,231,223,.11);
-        background: transparent;
-        padding: 24px 12px 30px;
-        font-size: .58em;
-      }
-      .footer p { line-height: 1.45; }
-      @media(max-width:600px) {
-        .center { height: 65vh; min-height: 350px; }
-        h1 { margin-top: 35px; font-size: clamp(3rem,15vw,4em); }
-        .logo { height: 80px; }
-        body > p { padding: 0 22px; font-size: 1.1em; line-height: 1.7; }
-        .curation { margin-top: 85px; padding: 0 22px; }
-        .project-reveal summary { grid-template-columns: 32px 1fr 56px; gap: 10px; min-height: 93px; }
-        .project-type { grid-column: 2; grid-row: 2; margin-top: -25px; font-size: 9px; }
-        .project-toggle { grid-column: 3; grid-row: 1; }
-        .project-description { padding-left: 0; }
-        .curation-heading { font-size: 9px; letter-spacing: .14em; }
-        .footer { margin-top: 80px; }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-        .project-reveal summary { transition: none; }
-      }
-    </style>
-  </head>
-  <body>
-    <img src="logo.png" alt="Logo" class="logo">
-    <div class="center hero-center">
-      <a href="https://yng3.github.io/"><h1 class="animate__animated animate__fadeInDown">YNG3</h1></a>
-      <a class="quinn-entry animate__animated animate__fadeInUp" href="/quinn/" aria-label="Explore QUINN project">
-        <span>QUINN</span>
-        <small>Explore project</small>
-      </a>
-    </div>
-    <p class="animate__animated animate__fadeInUp">you have stumbled upon the realm of mystery and wonder. a quiet window into the systems, experiments, and discoveries currently taking shape.</p>
-
-
-    <section class="curation" aria-label="Selected work">
-      <div class="curation-heading">
-        <span>Selected work / 001</span>
-        <span>Currently in development</span>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <div class="intro-curtain" aria-hidden="true"><span>YNG3</span><small>ORIGIN / EST. IN CURIOSITY</small></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="site-frame" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a href="#top" class="brand" aria-label="YNG3 — top of page"><span class="brand-sigil" aria-hidden="true"><i></i><i></i><i></i></span><span>YNG<span class="brand-three">3</span></span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="#work">SELECTED WORK</a><a href="#ethos">THE IDEA</a><a href="#connect">CONNECT</a></nav>
+    <a class="header-action" href="./quinn/">ENTER QUINN <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-meta"><span><b class="live-dot"></b> AN INDEPENDENT DIGITAL REALM</span><span>EST. SOMEWHERE BETWEEN REALITY & POSSIBILITY <span class="meta-cross" aria-hidden="true">✳</span></span></div>
+      <div class="hero-center">
+        <div class="hero-object" aria-hidden="true"><canvas id="portal" width="900" height="900"></canvas><div class="portal-core"><span class="portal-cross">✦</span></div><div class="portal-fine portal-fine-a"></div><div class="portal-fine portal-fine-b"></div></div>
+        <div class="hero-title-wrap"><span class="hero-kicker">THE INTERNET HAS OTHER DIMENSIONS.</span><h1 id="hero-title" class="hero-title">YNG<span>3</span><span class="hero-title-dot">.</span></h1><div class="hero-subline"><span>BEYOND THE ORDINARY</span><span> / </span><em>into the unknown.</em></div></div>
       </div>
-      <details class="project-reveal">
-        <summary aria-label="Expand QUINN project preview">
-          <span class="project-id">01</span>
-          <strong class="project-title">QUINN</strong>
-          <span class="project-type">Identity / Computation</span>
-          <span class="project-toggle">View</span>
-        </summary>
-        <div class="project-description">
-          <p>An exploration of persistent cryptographic identity, governed execution, and continuity beyond a single machine. Built deliberately, with authority constrained at every boundary.</p>
-          <a href="/quinn/">Explore QUINN</a>
-        </div>
-      </details>
+      <div class="hero-bottom"><div class="hero-description"><span class="micro-label">[ THE THESIS ]</span><p>A home for unconventional ideas, intelligent systems, and things that don't fit neatly into a category.</p></div><div class="hero-commands"><div class="mode-label">TUNE THE UNIVERSE <span>↘</span></div><div class="mode-controls" role="group" aria-label="Choose portal animation"><button type="button" class="mode-control active" data-mode="orbit" aria-pressed="true">01 / ORBIT</button><button type="button" class="mode-control" data-mode="bloom" aria-pressed="false">02 / BLOOM</button><button type="button" class="mode-control" data-mode="drift" aria-pressed="false">03 / DRIFT</button></div><button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false">PAUSE MOTION <span aria-hidden="true">Ⅱ</span></button></div></div>
+      <a class="scroll-cue" href="#work"><span>SCROLL TO ENTER</span><span class="scroll-line" aria-hidden="true"></span><span aria-hidden="true">↓</span></a>
+      <div class="hero-edge hero-edge-left" aria-hidden="true">YNG3 / TRANSMISSION 0001</div><div class="hero-edge hero-edge-right" aria-hidden="true">NO RULES FOR WHAT COMES NEXT</div>
     </section>
+    <section class="statement" aria-label="YNG3 introduction"><div class="statement-number">001 — THE ARRIVAL</div><p class="statement-text reveal">NOT EVERYTHING<br>IS MEANT TO BE <span class="statement-serif">understood.</span></p><div class="statement-bottom"><span>AN EXPLORATION WITHOUT A PREDEFINED DESTINATION.</span><span class="statement-spark" aria-hidden="true">✳</span></div></section>
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="section-head"><span>01 / SELECTED WORLDS</span><span>PROJECT INDEX — 2026</span></div>
+      <div class="work-heading reveal"><p class="eyebrow-dark">THE THINGS WE ARE BUILDING</p><h2 id="work-title">IDEAS WITH<br><em>GRAVITY.</em></h2><p class="work-intro">The most interesting projects rarely start with a business plan. They start with a question that won't leave you alone.</p></div>
+      <article class="feature" aria-labelledby="quinn-name">
+        <a class="feature-art" href="./quinn/" aria-label="Explore QUINN" ><div class="feature-grid" aria-hidden="true"></div><div class="feature-orbit feature-orbit-a" aria-hidden="true"></div><div class="feature-orbit feature-orbit-b" aria-hidden="true"></div><div class="feature-orbit feature-orbit-c" aria-hidden="true"></div><div class="feature-core" aria-hidden="true">Q</div><div class="feature-art-top">[ Q / 001 ] <span>EXPERIMENTAL INTELLIGENCE</span></div><div class="feature-art-bottom">THE ROOT IS NOT THE RUNTIME <span>↗</span></div></a>
+        <div class="feature-copy"><div class="feature-index"><span>001 / FEATURED PROJECT</span><span class="feature-status"><i></i> IN DEVELOPMENT</span></div><h3 id="quinn-name">QUINN<span class="feature-period">.</span></h3><p class="feature-italic">An identity, untethered.</p><p class="feature-body">An experiment in persistent identity, governed computation, and continuity beyond any single machine. A different starting point for intelligence.</p><a class="feature-link" href="./quinn/"><span>EXPLORE THE WORLD OF QUINN</span><span class="link-arrow" aria-hidden="true">↗</span></a></div>
+      </article>
+      <div class="index-row" aria-label="The ongoing YNG3 laboratory"><span class="index-no">002 — ∞</span><div><h3>THE OPEN LAB.</h3><p>Further experiments, strange interfaces, and ideas taking shape behind the scenes.</p></div><span class="index-status">MORE TO COME <span aria-hidden="true">✳</span></span></div>
+    </section>
+    <section class="interlude" id="ethos" aria-labelledby="ethos-title"><div class="interlude-grid" aria-hidden="true"></div><div class="interlude-top"><span>02 / A WAY OF SEEING</span><span>THE OPERATING PRINCIPLE</span></div><div class="interlude-content reveal"><span class="interlude-star" aria-hidden="true">✳</span><h2 id="ethos-title">STAY<br><em>CURIOUS.</em></h2><p>No fixed discipline. No pre-approved destination. Just an enduring interest in what lies at the intersection of technology, imagination, and human intent.</p></div><div class="interlude-bottom"><span>BUILD / QUESTION / REPEAT</span><span>SCROLL ON ↓</span></div></section>
+    <section class="connect" id="connect" aria-labelledby="connect-title"><div class="section-head"><span>03 / FIND THE SIGNAL</span><span>THE WORLD IS STILL OPEN</span></div><div class="connect-main"><div><p class="eyebrow-dark">THERE IS ALWAYS MORE TO DISCOVER.</p><h2 id="connect-title">FOLLOW THE<br><em>THREAD.</em></h2></div><p>Explore the work. Follow the experiments. See what emerges next.</p></div><div class="connect-links"><a href="https://github.com/YNG3" rel="noopener noreferrer" target="_blank"><span>01</span><strong>GITHUB</strong><span>CODE / EXPERIMENTS</span><b aria-hidden="true">↗</b></a><a href="https://youtube.com/@ynotloc?si=pqxuKUOhRbvVTWKb" rel="noopener noreferrer" target="_blank"><span>02</span><strong>YOUTUBE</strong><span>VIDEO / TRANSMISSIONS</span><b aria-hidden="true">↗</b></a><a href="./quinn/"><span>03</span><strong>QUINN</strong><span>ENTER / THE PROJECT</span><b aria-hidden="true">↗</b></a></div></section>
+  </main>
+  <footer class="footer"><div class="footer-top"><span>YOU'VE REACHED THE EDGE.</span><a href="#top">RETURN TO ORIGIN ↑</a></div><div class="footer-type" aria-hidden="true">YNG<span>3</span><i>.</i></div><div class="footer-bottom"><span>© <span id="year">2026</span> YNG3. AN INDEPENDENT DIGITAL REALM.</span><span>MADE FOR THE UNEXPECTED. ✳</span></div></footer>
+  <noscript><p class="no-script">The site remains navigable without JavaScript; animated visuals and interactive modes require JavaScript.</p></noscript>
+  <script>
+'use strict';
+(() => {
+  document.documentElement.classList.add('js');
+  const $ = (q, root = document) => root.querySelector(q);
+  const $$ = (q, root = document) => Array.from(root.querySelectorAll(q));
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const year = $('#year');
+  if (year) year.textContent = new Date().getFullYear();
 
-    <div class="footer">
-      <p>&copy; 2026 YNG3</p>
-      <p><a href="https://youtube.com/@ynotloc?si=pqxuKUOhRbvVTWKb">YouTube</a></p>
-      <p>visit my <a href="https://github.com/YNG3">github</a> for all the latest hax</p>
-    </div>
+  const sections = $$('.reveal');
+  if ('IntersectionObserver' in window && !reduce.matches) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: .12 });
+    sections.forEach(node => observer.observe(node));
+  } else sections.forEach(node => node.classList.add('in-view'));
 
-  </body>
+  const glow = $('.cursor-glow');
+  if (glow && window.matchMedia('(pointer:fine)').matches && !reduce.matches) {
+    window.addEventListener('pointermove', ev => {
+      glow.style.opacity = '1';
+      glow.style.left = ev.clientX + 'px';
+      glow.style.top = ev.clientY + 'px';
+    }, { passive: true });
+  }
+
+  const canvas = $('#portal');
+  if (!canvas || !canvas.getContext) return;
+  const ctx = canvas.getContext('2d', { alpha: true });
+  if (!ctx) return;
+  let W = 900, H = 900, DPR = 1, t = 0, last = 0;
+  let running = !reduce.matches, mode = 'orbit', frameId = 0;
+  let tiltX = -.22, tiltY = .15, targetX = -.22, targetY = .15;
+  let drag = false, lastPointer = null;
+  const modes = $$('.mode-control');
+  const toggle = $('#motion-toggle');
+  let seed = 197619;
+  const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const dust = Array.from({ length: 530 }, () => ({ x: (rand()-.5)*2.4, y: (rand()-.5)*2.4, z: (rand()-.5)*2.4, size: rand()*1.5+.3, phase: rand()*6.28 }));
+  const points = Array.from({ length: 1230 }, (_, i) => {
+    const a = rand()*Math.PI*2, b = rand()*Math.PI*2;
+    return { a, b, seed: rand(), size: rand()*.8+.3, phase: i*.47, hue:rand() };
+  });
+  const strokeLoop = (arr, color, width) => {
+    if (!arr.length) return;
+    ctx.beginPath(); ctx.moveTo(arr[0][0], arr[0][1]);
+    for (let j=1;j<arr.length;j++) ctx.lineTo(arr[j][0], arr[j][1]);
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+  };
+  const rot = (x,y,z) => {
+    const cy=Math.cos(tiltY),sy=Math.sin(tiltY),cx=Math.cos(tiltX),sx=Math.sin(tiltX);
+    const x1=x*cy-z*sy, z1=x*sy+z*cy;
+    return [x1,y*cx-z1*sx,y*sx+z1*cx];
+  };
+  const proj = (x,y,z) => {
+    const r = rot(x,y,z), perspective=3.7/(r[2]+5.2);
+    const scale = Math.min(W,H)*.34*perspective;
+    return [W*.5+r[0]*scale,H*.5+r[1]*scale,r[2]];
+  };
+  function point(a,b,seedValue) {
+    const wobble = mode==='bloom' ? .15*Math.sin(3*a+t*.8+seedValue) : mode==='drift' ? .22*Math.sin(2*b + t*.26) : 0;
+    const minor = mode==='bloom' ? .78 : mode==='drift' ? .46 : .62;
+    const major = mode==='drift' ? 1.67 : 1.36;
+    const phase = t*(mode==='orbit' ? .13 : mode==='bloom' ? -.09 : .028);
+    const A=a+phase, B=b + (mode==='bloom'?t*.16:0);
+    const r=major + (minor+wobble)*Math.cos(B);
+    return [r*Math.cos(A),r*Math.sin(A),(minor+wobble)*Math.sin(B)*.9];
+  }
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    const cx=W*.5,cy=H*.5;
+    const bg=ctx.createRadialGradient(cx,cy,W*.03,cx,cy,W*.49);
+    bg.addColorStop(0,'rgba(149,112,254,.15)');
+    bg.addColorStop(.35,'rgba(107,79,199,.065)');
+    bg.addColorStop(1,'rgba(74,63,176,0)');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+
+    for(const s of dust){
+      const q=proj(s.x*1.95,s.y*1.95,s.z*1.95);
+      const alpha=(.17+.25*(Math.sin(t*.28+s.phase)+1)/2);
+      ctx.fillStyle=`rgba(204,193,252,${alpha})`;
+      ctx.beginPath();ctx.arc(q[0],q[1],s.size,0,Math.PI*2);ctx.fill();
+    }
+    for(let k=0;k<9;k++){
+      const coords=[];const theta=k/9*Math.PI*2;
+      for(let j=0;j<=110;j++){
+        const a=j/110*Math.PI*2;
+        const [x,y,z]=point(a,theta,.3);
+        const p=proj(x,y,z); coords.push(p);
+      }
+      strokeLoop(coords,`rgba(182,173,250,${k%3===0?.16:.064})`,.8);
+    }
+    for(let k=0;k<12;k++){
+      const coords=[];const a=k/12*Math.PI*2;
+      for(let j=0;j<=75;j++){
+        const b=j/75*Math.PI*2;
+        const [x,y,z]=point(a,b,.4);
+        coords.push(proj(x,y,z));
+      }
+      strokeLoop(coords,'rgba(210,191,255,.055)',.65);
+    }
+    const ordered=[];
+    for(const d of points){
+      const [x,y,z]=point(d.a,d.b,d.seed*7);
+      const p=proj(x,y,z);
+      ordered.push([p[0],p[1],p[2],d]);
+    }
+    ordered.sort((a,b)=>a[2]-b[2]);
+    for(const p of ordered){
+      const depth=Math.max(.05,Math.min(1,(p[2]+2.5)/5));
+      const bright=.14+depth*.7;
+      const hue=p[3].hue;
+      const radius=p[3].size*(.65+.7*depth);
+      ctx.fillStyle=hue>.93?`rgba(255,211,225,${bright})`:hue>.56?`rgba(210,193,255,${bright})`:`rgba(164,170,255,${bright})`;
+      ctx.beginPath();ctx.arc(p[0],p[1],radius,0,Math.PI*2);ctx.fill();
+    }
+    const center=ctx.createRadialGradient(cx,cy,0,cx,cy,W*.14);
+    center.addColorStop(0,'rgba(12,11,22,.55)');center.addColorStop(1,'rgba(13,11,31,0)');
+    ctx.fillStyle=center;ctx.beginPath();ctx.arc(cx,cy,W*.14,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.arc(cx,cy,Math.min(W,H)*.36,0,Math.PI*2);ctx.strokeStyle='rgba(210,205,255,.09)';ctx.lineWidth=1;ctx.stroke();
+  }
+  function animate(now) {
+    if (!running) return;
+    if (now-last>30) {
+      const delta = last ? Math.min(.06,(now-last)/1000) : .033;
+      t += delta;
+      tiltX += (targetX-tiltX)*.035;
+      tiltY += (targetY-tiltY)*.035;
+      if(!drag) targetY += .0025;
+      draw();last=now;
+    }
+    frameId = requestAnimationFrame(animate);
+  }
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    W = Math.max(1,rect.width);H=Math.max(1,rect.height);
+    DPR=Math.min(1.75,window.devicePixelRatio||1);
+    canvas.width=Math.round(W*DPR);canvas.height=Math.round(H*DPR);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    draw();
+  }
+  function setMode(next){
+    if(!['orbit','bloom','drift'].includes(next))return;
+    mode=next;
+    for(const button of modes){const selected=button.dataset.mode===next;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));}
+    if(!running)draw();
+  }
+  modes.forEach(button=>button.addEventListener('click',()=>setMode(button.dataset.mode)));
+  function syncToggle() {
+    if(!toggle)return;
+    toggle.setAttribute('aria-pressed',String(!running));
+    toggle.innerHTML=running?'PAUSE MOTION <span aria-hidden="true">Ⅱ</span>':'RESUME MOTION <span aria-hidden="true">▷</span>';
+  }
+  function startStop(on){
+    running=on;cancelAnimationFrame(frameId);last=0;
+    if(on)frameId=requestAnimationFrame(animate);else draw();syncToggle();
+  }
+  if(toggle)toggle.addEventListener('click',()=>startStop(!running));
+  canvas.addEventListener('pointerdown',e=>{drag=true;lastPointer={x:e.clientX,y:e.clientY};canvas.setPointerCapture?.(e.pointerId);});
+  canvas.addEventListener('pointermove',e=>{if(!drag||!lastPointer)return;targetY+=(e.clientX-lastPointer.x)*.008;targetX=Math.max(-1.3,Math.min(1.3,targetX+(e.clientY-lastPointer.y)*.006));lastPointer={x:e.clientX,y:e.clientY};if(!running){tiltX=targetX;tiltY=targetY;draw();}});
+  const endDrag=()=>{drag=false;lastPointer=null;};
+  canvas.addEventListener('pointerup',endDrag);canvas.addEventListener('pointercancel',endDrag);
+  if('ResizeObserver' in window)new ResizeObserver(resize).observe(canvas);else window.addEventListener('resize',resize,{passive:true});
+  if(reduce.addEventListener)reduce.addEventListener('change',e=>startStop(!e.matches));
+  resize();syncToggle();if(running)frameId=requestAnimationFrame(animate);
+})();
+
+</script>
+</body>
 </html>
