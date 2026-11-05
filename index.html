@@ -89,49 +89,6 @@
         cursor: pointer;
       }
 
-      /* QUINN portfolio entry */
-      .hero-center {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .quinn-entry {
-        display: inline-flex;
-        align-items: center;
-        gap: 15px;
-        padding: 12px 22px;
-        color: #e4f9ef;
-        border: 1px solid rgba(137, 219, 179, .28);
-        border-radius: 999px;
-        background: rgba(50, 125, 91, .08);
-        font-size: .75rem;
-        font-weight: 500;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        text-shadow: none;
-        text-decoration: none;
-        transition: border-color .25s ease, background .25s ease, transform .25s ease;
-      }
-
-      .quinn-entry:hover, .quinn-entry:focus-visible {
-        color: #fff;
-        background: rgba(50, 125, 91, .18);
-        border-color: rgba(156, 252, 202, .58);
-        transform: translateY(-2px);
-      }
-
-      .quinn-entry small {
-        color: rgba(183, 234, 204, .64);
-        font-size: .65rem;
-        letter-spacing: .14em;
-      }
-
-      @media (max-width: 480px) {
-        .quinn-entry { padding: 12px 15px; gap: 10px; font-size: .7rem; }
-        .quinn-entry small { font-size: .6rem; }
-      }
-
-
       /* Curated public signals — original YNG3 structure remains intact */
       .curation {
         max-width: 850px;
@@ -224,13 +181,9 @@
   </head>
   <body>
     <img src="logo.png" alt="Logo" class="logo">
-    <div class="center hero-center">
+    <div class="center">
       <a href="https://yng3.github.io/"><h1 class="animate__animated animate__fadeInDown">YNG3</h1></a>
-      <a class="quinn-entry animate__animated animate__fadeInUp" href="/quinn/" aria-label="Explore QUINN project">
-        <span>QUINN</span>
-        <small>Explore project</small>
-      </a>
-    </div>
+      </div>
     <p class="animate__animated animate__fadeInUp">you have stumbled upon the realm of mystery and wonder. a quiet window into the systems, experiments, and discoveries currently taking shape.</p>
 
 
