@@ -153,6 +153,7 @@
       }
       .curation-heading span:last-child { color: #69716c; }
       .project-reveal { border-top: 1px solid rgba(226,242,232,.2); border-bottom: 1px solid rgba(226,242,232,.2); }
+      .project-reveal + .project-reveal { border-top: 0; }
       .project-reveal summary {
         display: grid;
         grid-template-columns: 44px minmax(0,1fr) minmax(125px,.7fr) 60px;
@@ -235,7 +236,7 @@
 
     <section class="curation" aria-label="Selected work">
       <div class="curation-heading">
-        <span>Selected work / 001</span>
+        <span>Selected work / 002</span>
         <span>Currently in development</span>
       </div>
       <details class="project-reveal">
@@ -248,6 +249,18 @@
         <div class="project-description">
           <p>An exploration of persistent cryptographic identity, governed execution, and continuity beyond a single machine. Built deliberately, with authority constrained at every boundary.</p>
           <a href="/quinn/">Explore QUINN</a>
+        </div>
+      </details>
+      <details class="project-reveal">
+        <summary aria-label="Expand ETH Kraken Bot project preview">
+          <span class="project-id">02</span>
+          <strong class="project-title">ETH KRAKEN BOT</strong>
+          <span class="project-type">Markets / Engineering</span>
+          <span class="project-toggle">View</span>
+        </summary>
+        <div class="project-description">
+          <p>A deterministic Python futures paper-trading research system. Explore its market-data safeguards, strategy blockers, risk gates, hash-chained audit records, and documented limitations. Paper autonomy and live trading are not qualified in the latest available audit.</p>
+          <a href="/eth/">Explore ETH research</a>
         </div>
       </details>
     </section>
