@@ -30,7 +30,7 @@
       const tag = document.createElement('span'); tag.textContent = name; return tag;
     }));
     const node = $('#flow-active');
-    if (node) node.setAttribute('x', String([43,172,301,430,430][Math.min(i,4)]));
+    if (node) node.setAttribute('x', String([22,143,264,385,506][i]));
     if (focus) stageButtons[i].focus();
   }
   stageButtons.forEach((button, i) => {
@@ -68,5 +68,18 @@
   }
   presets.forEach(button=>button.addEventListener('click',()=>setPreset(button.dataset.preset)));
   gates.forEach(gate=>gate.addEventListener('change',render));
+  const navLinks = [...document.querySelectorAll('.topnav a[href^="#"]')];
+  if ('IntersectionObserver' in window) {
+    const targets = navLinks.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === '#' + entry.target.id) link.setAttribute('aria-current','location');
+          else link.removeAttribute('aria-current');
+        });
+      }
+    }, {rootMargin:'-20% 0px -67% 0px',threshold:0});
+    targets.forEach(target => observer.observe(target));
+  }
   selectStage(0,false);setPreset('trend');
 })();
