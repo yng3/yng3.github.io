@@ -1,31 +1,35 @@
-# ETH Kraken Bot — YNG3 portfolio
+# ETH Kraken Bot — trading research portfolio
 
-This is a **public exhibition** of a Python ETH futures **paper-trading research** system. It is not a trading interface or a live metrics dashboard. The page has no account login, exchange authentication, market-data fetch, order controls, payment mechanism, telemetry, remote runtime link, or private state.
+This is a **public, static exhibition** of the Python ETH futures **paper-trading research** project. It documents the project's reported architecture, deterministic strategy rules, qualification status, historical risk configurations, audit evidence, and research limitations. It is **not** the bot's runtime, an exchange client, a trading interface, a source of real-time prices, or an account dashboard.
 
-## Evidence provenance
+## Presentation and synthetic chart
 
-Descriptions and historical figures are transcribed from the **ETH Kraken Bot — YNG3 Portfolio Handoff** supplied November 5, 2026, reflecting the latest documented read-only audit dated November 1, 2026. This website's author did not independently access or rerun the bot source or the project-reported historical checks. Labels distinguish:
+The distinct trading-terminal visual system uses dark data panels, candlesticks, a decision-gate display, and audit tables. The chart is locally generated and **synthetic**: numbers represent a unitless relative index, not ETH prices, paper-control P&L, actual trades, strategy forecasts, or live market data. Switching 24, 48, or 72 bars simply displays a different length of the same deterministic illustrative series. No data is fetched from the network.
 
-- **Source reported**: deterministic entry/exit conditions, Python architecture, ledger controls, and historical contract configurations as described in the handoff.
-- **Project-record reported**: 1,374 events, 535 decisions, 2 reconciled fills, 6,780 parity comparisons, 16 frozen-mark detections and 266 healthy snapshots. Not rerun here.
-- **Historical failed shadow simulation**: $400 start, $349.758 end, 18 closed losses, 12.56% drawdown, $16.8203 fees. Not the control account or live trading.
-- **Stale paper-state snapshot**: $1,004.70 collateral last updated October 8, 2026. Not verified equity or return.
-- **Not established**: current equity, P&L, profitable strategy, qualified paper autonomy or live results.
+The architecture control and the six-condition strategy example are also local illustrations. They do not access Kraken, execute orders, access the trading bot, or infer a live entry signal. The app does not use emojis or promotional slogans.
 
-The strategy interactive is a **pure logic demonstration**; checkboxes represent hypothetical Boolean conditions. It does not consume prices or execute trades. The hero's procedural canvas is abstract design and must not be construed as live market data.
+## Factual boundaries
 
-## Architecture boundaries
+Details are taken from the **ETH Kraken Bot — YNG3 Portfolio Handoff** provided November 5, 2026. The private repository and historical tests were **not independently audited** for this portfolio. The latest available project audit dated 2026-11-01 reports that **paper autonomy and live trading were not qualified**. No current equity, valid paper return, live result, or profitability is established.
 
-- All page resources are inline and local except the existing YNG3 favicon, retrieved by relative path.
-- CSP restricts script and style to their exact source hashes, allows no connections, and forbids frames/forms/objects.
-- No operational credentials or host details have been copied from the handoff.
-- Historical risk configurations are kept separate: charter v1, paper contract v3, and July qualification candidate.
-- Source filenames shown on the page serve as contextual pointers from the handoff, **not publicly audited code**.
+- **Project record reported:** 1,374 ledger events; 535 strategy decisions; 2 reconciled fills; 6,780 pinned-reference comparisons without mismatch; 16 frozen marks detected in a historical replay, with 266 healthy snapshots and zero false positives. These checks were not rerun for this page.
+- **Stale paper-state file:** $1,004.70 saved collateral, last updated October 8. Not validated current equity; never calculate return from this value.
+- **Failed isolated shadow simulation:** $400 to $349.758; 18 losing closes; 12.56% max drawdown; $16.8203 recorded fees. Not paper control or live trading.
+- **Historical contract variants:** charter v1 baseline, paper contract v3 aggressive, and July qualification candidate are separate past documents, not asserted current configurations.
+
+## Files and security
+
+- `index.html`: semantic layout and the complete factual content.
+- `design.css`: original trading-terminal visual system, responsive without web fonts.
+- `app.js`: keyboard-accessible architecture tabs and deterministic condition toggles.
+- `chart.js`: zero-network, deterministic synthetic OHLC-like chart (no orders or forecasting).
+
+The page enforces a strict Content Security Policy with same-origin scripts and styles, `connect-src 'none'`, and no inline JS or external libraries, telemetry, cookies, exchange credentials, forms, payments, or private endpoint connections. The existing YNG3 favicon is the only reference outside this directory.
+
+The public homepage keeps QUINN and ETH Kraken Bot only in the lower `Selected work` portfolio section; the original homepage is otherwise unchanged. The deferred complete YNG3 homepage redesign must remain unmerged.
 
 ## Validation
 
-Isolated Chromium rendering and interaction checks exercised 1440×900, 820×960, 390×844, and 320×740 layouts. Architecture tab switching and keyboard navigation, signal preset/checkbox interactions, no-JavaScript-error smoke checks and horizontal-overflow checks passed. Tests rendered HTML with `page.set_content`, because local file navigation is blocked in this environment. GitHub Pages serving and cross-page navigation still require verification after a future merge.
+Validated via isolated Chromium rendering at viewport widths 1440, 1024, 820, 390, and 320px. Confirmed architecture tab selection and keyboard Home navigation, simulated condition presets, 24/48/72 chart controls and canvas rendering, absence of detected JavaScript errors, no horizontal overflow, and matching dark styles. GitHub Pages routing and any production deployment should be inspected after merge.
 
-## Publishing
-
-Stage with a reviewed pull request. Publication should occur only after review of all public-facing facts and claims. Do not merge the deferred YNG3 cinematic homepage proposal. The main site's selected-work list can add this page as a second project without changing its overall design.
+Research-software demonstration only. Not investment advice or evidence of qualified live trading.
